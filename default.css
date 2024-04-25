@@ -510,7 +510,7 @@ h6{font-size: 16px;}
 	position: relative;
   }
 
-  /* Estilos para a imagem */
+  /* Styles for the image */
   .course-list li .course-img {
 	display: none;
 	position: absolute;
@@ -523,7 +523,7 @@ h6{font-size: 16px;}
 	border-radius: 5px;
   }
 
-  /* Animação */
+  /* Animation */
   .course-list li:hover .course-img {
 	display: block;
   }
