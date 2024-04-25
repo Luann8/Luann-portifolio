@@ -502,7 +502,7 @@ h6{font-size: 16px;}
 	border: 2px solid var(--borderColor);
   }
 
-.favorite-courses-list {
+  .favorite-courses-list {
 	list-style: none;
 	padding: 0;
   }
@@ -553,4 +553,122 @@ h6{font-size: 16px;}
   /* Animation */
   .course-list li:hover .course-img {
 	display: block;
+  }
+
+   /* Estilos para a lista de cursos */
+   .course-list li {
+	position: relative;
+  }
+
+  .scroll-up-btn {
+	position: fixed;
+	height: 50px;
+	width: 47px;
+	background: rgb(255, 4, 4); /* Cor de fundo */
+	right: 30px;
+	bottom: 10px;
+	text-align: center;
+	line-height: 50px;
+	z-index: 999;
+	font-size: 30px; /* Tamanho do ícone */
+	border-radius: 6px;
+	cursor: pointer;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.3s ease;
+  }
+  
+  /* Mostra o botão quando necessário */
+  .scroll-up-btn.show {
+	opacity: 1;
+	pointer-events: auto;
+	bottom: 30px; /* Ajusta a posição */
+  }
+
+  /* Estilos para a barra de navegação */
+.navbar {
+	position: fixed;
+	width: 100%;
+	padding: 10px 0;
+	z-index: 999;
+	font-family: "Ubuntu", sans-serif;
+	background-color: var(--mainColor);
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1); /* Adiciona uma borda na parte inferior */
+  }
+  
+  .navbar.sticky {
+	padding: 2px 0;
+	background-color: rgb(0, 0, 0); /* Altera a cor de fundo quando fixa */
+  }
+  
+  .max-width {
+	max-width: 1300px;
+	padding: 0 20px; /* Reduzi o espaço de padding */
+	margin: auto;
+  }
+  
+  .navbar .max-width {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+  }
+  
+  .navbar .logo a {
+	font-size: 24px; /* Reduzi o tamanho da fonte */
+	font-weight: 500;
+	font-family: "Pacifico";
+	transition: color 0.3s ease;
+  }
+  
+  .navbar .logo a span {
+	color: rgb(192, 14, 8);
+  }
+  
+
+  
+  .navbar .menu li {
+	list-style: none;
+	display: inline-block;
+  }
+  
+  .navbar .menu li a {
+	display: block;
+	font-size: 16px; /* Reduzi o tamanho da fonte */
+	font-weight: 500;
+	margin-left: 20px; /* Reduzi o espaço de margem */
+    color: var(--mainText);
+	transition: color 0.3s ease;
+  }
+  
+  .navbar .menu li a:hover {
+	color: rgb(187, 6, 6);
+  }
+  
+  .navbar.sticky .menu li a:hover {
+	color: #ffffff;
+  }
+  
+  /* Estilos para o botão de rolagem */
+  .scroll-up-btn {
+	position: fixed;
+	height: 20px; /* Reduzi a altura */
+	width: 20px; /* Reduzi a largura */
+	background: rgb(255, 4, 4);
+	right: 20px; /* Reduzi a distância da borda direita */
+	bottom: 20px; /* Reduzi a distância da borda inferior */
+	text-align: center;
+	line-height: 40px; /* Centraliza verticalmente o ícone */
+	color: #fff;
+	z-index: 999;
+	font-size: 24px; /* Reduzi o tamanho do ícone */
+	border-radius: 50%; /* Torna o botão redondo */
+	cursor: pointer;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.3s ease;
+  }
+  
+  .scroll-up-btn.show {
+	opacity: 1;
+	pointer-events: auto;
   }
