@@ -200,7 +200,7 @@ h6{font-size: 16px;}
 
 #settings-note{
 	font-size: 12px;
-	font-style: italic;
+	font-style: Russo One, cursive;
 	text-align: center;
 }
 
@@ -457,7 +457,10 @@ h6{font-size: 16px;}
   .article-box img {
 	width: 100%; /* Ensure images fill their containers */
 	height: auto; /* Maintain aspect ratio */
-  }
+	width: 200px;
+	height: 180px;  
+}
+ 
   #profile-pik {
 	display: block;
 	margin: 0 auto;
@@ -467,4 +470,37 @@ h6{font-size: 16px;}
 	border-radius: 50%; /* Torna a borda circular */
 	border: 2px solid var(--borderColor);
   }
+
+  .italic-text {
+    font-family: Russo One, cursive; /* Russo One with fallback to cursive */
+}
+
+.favorite-courses-list {
+	list-style: none;
+	padding: 0;
+  }
   
+  .favorite-courses-list li {
+	font-family: 'Roboto Mono', monospace;
+	font-size: 16px;
+	line-height: 1.6;
+	margin-bottom: 10px;
+  }
+  
+  .favorite-courses-list li::before {
+	content: "\2022"; /* Código unicode para um ponto preto */
+	font-weight: bold;
+	display: inline-block;
+	width: 1em;
+	margin-left: -1em;
+  }
+  
+  .favorite-courses-list li:hover a {
+	color: #fc6058; /* Cor vermelha ao passar o mouse */
+	cursor: pointer; /* Ícone de cursor de mão ao passar o mouse */
+  }
+  
+  .favorite-courses-list a {
+	color: inherit; /* Cor padrão dos links */
+	text-decoration: none; /* Remover sublinhado padrão dos links */
+  }
