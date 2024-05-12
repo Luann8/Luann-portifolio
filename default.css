@@ -666,9 +666,41 @@ h6{font-size: 16px;}
 	opacity: 0;
 	pointer-events: none;
 	transition: all 0.3s ease;
-  }
+ }
   
-  .scroll-up-btn.show {
-	opacity: 1;
-	pointer-events: auto;
+  /* Mostra o botão quando necessário */
+
+  .footer-basic .social a {
+	transition: color 0.3s ease;
   }
+
+  .footer-basic .social a:hover {
+	color: inherit;
+  }
+
+  .footer-basic .social a[href*="linkedin"] i {
+	color: #0077B5; /* Azul LinkedIn */
+  }
+
+  .footer-basic .social a[href*="github"] i {
+	color: #6e5494; /* Roxo GitHub */
+  }
+
+  .social a[href*="linkedin"] i {
+	color: #0077B5; /* Azul LinkedIn */
+  }
+
+  .social a[href*="github"] i {
+
+	color: #6e5494; /* Roxo GitHub */
+  }
+
+
+  .social {
+
+	text-align: center;
+	padding-bottom: 25px;
+
+
+  }
+
