@@ -703,3 +703,22 @@ h6{font-size: 16px;}
 
 
   }
+
+
+ /* General layout */
+
+  
+ @media (max-width: 768px) {
+	.article-box {
+	  width: calc(50% - 20px);
+	}
+  
+	.article-thumbnails {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 20px;
+	  justify-content: center;
+	}
+  }
+  
+
