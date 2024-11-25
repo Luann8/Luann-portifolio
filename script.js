@@ -39,4 +39,7 @@ function setTheme(mode){
 
 
 
-  
+document.getElementById("menu-button").addEventListener("click", function() {
+    var menu = document.querySelector(".menu");
+    menu.classList.toggle("show"); // Alterna a visibilidade do menu
+});
