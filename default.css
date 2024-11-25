@@ -625,7 +625,6 @@ h6{font-size: 16px;}
   }
 
 
-
   .navbar .menu li {
 	list-style: none;
 	display: inline-block;
@@ -704,11 +703,54 @@ h6{font-size: 16px;}
 
   }
 
-
  /* General layout */
 
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none; /* Menu está oculto */
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
+    .menu-button {
+        display: block; /* Exibe o botão de menu */
+    }
+
+	.logo img {
+		display: none; /* Oculta a imagem */
+	}
+    
+	.menu.show {
+        display: flex; /* Mostra o menu quando a classe 'show' for adicionada */
+    }
+	.menu-button {
+		display: block;
+		top: 10px;
+		right: 10px;
+		font-size: 24px;
+		cursor: pointer;
+		color: var(--mainText);
+		background-color: var(--previewBg);
+		border: solid 1px var(--borderColor);
+		border-radius: 5px;
+	}
+}
+
+@media screen and (min-width: 769px) {
+    .menu-button {
+        display: none; /* Oculta o botão em telas grandes (tamanho normal) */
+    }
+}
+
+
   
- @media (max-width: 768px) {
+@media (max-width: 768px) {
 	.article-box {
 	  width: calc(50% - 20px);
 	}
@@ -721,4 +763,3 @@ h6{font-size: 16px;}
 	}
   }
   
-
