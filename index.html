@@ -25,22 +25,19 @@
         <button class="menu-button" id="menu-button">=</button>
       </div>
       <ul class="menu">
-        <li>
-          <a href="#" class="menu-btn">Home</a>
-        </li>
-        <li>
-          <a href="#experience" class="menu-btn">Experience</a>
-        </li>
-        <li>
-          <a href="#projects" class="menu-btn">Projectos</a>
-        </li>
-        <li>
-          <a href="#curses" class="menu-btn">Curses</a>
-        </li>
-        <li>
-          <a href="#contact" class="menu-btn">Contact</a>
-        </li>
+        <li><a href="#" class="menu-btn" data-translate="nav_home">Home</a></li>
+        <li><a href="#experience" class="menu-btn" data-translate="nav_experience">Experiência</a></li>
+        <li><a href="#projects" class="menu-btn" data-translate="nav_projects">Projetos</a></li>
+        <li><a href="#courses" class="menu-btn" data-translate="nav_courses">Cursos</a></li>
+        <li><a href="#contact" class="menu-btn" data-translate="nav_contact">Contato</a></li>
       </ul>
+      <div class="language-switcher">
+        <select id="language-select" aria-label="Selecionar idioma" onchange="changeLanguage()">
+          <option value="pt" selected>Português</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+        </select>
+      </div>
     </div>
   </nav>
   <div class="scroll-up-btn">
@@ -50,31 +47,27 @@
   <section class="s1">
     <div class="main-container">
       <div class="greeting-wrap">
-        <br>
-        <br>
-        <h1>Hi, I'm Lu4nn P3r3ir4 M3nd3s</h1>
+        <br><br>
+        <h1 data-translate="greeting">Oi, eu sou Lu4nn P3r3ir4 M3nd3s</h1>
       </div>
       <div class="intro-wrapper">
         <div class="nav-wrapper">
           <div class="dots-wrapper"></div>
           <ul id="navigation">
-            <li> <img src="https://github.com/Luann8/Luann-portifolio/blob/main/minimize-maximize-close-icon-vectors-elements-web-.png?raw=true" width="70px"></li>
+            <li><img src="https://github.com/Luann8/Luann-portifolio/blob/main/minimize-maximize-close-icon-vectors-elements-web-.png?raw=true" width="70px" alt="Navigation controls"></li>
           </ul>
         </div>
         <div class="left-column">
-          <img id="profile-pik" src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/main/face.jpg" alt="Lu4nn P3r3ir4 M3nd3s" />
-          <h5 style="text-align: center; line-height: 0">
-            Personalize Theme
-          </h5>
+          <img id="profile-pik" src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/main/face.jpg" alt="Lu4nn P3r3ir4 M3nd3s profile picture" />
+          <h5 style="text-align: center; line-height: 0" data-translate="customize_theme">Personalizar Tema</h5>
           <div id="theme-option-wrapper">
             <div data-mode="light" id="light-mode" class="theme-dot"></div>
             <div data-mode="blue" id="blue-mode" class="theme-dot"></div>
             <div data-mode="green" id="green-mode" class="theme-dot"></div>
             <div data-mode="purple" id="purple-mode" class="theme-dot"></div>
           </div>
-          <p id="settings-note">
-            *Theme options will be saved for<br />
-            your next visit
+          <p id="settings-note" data-translate="theme_note">
+            *As opções de tema serão salvas para<br />sua próxima visita
           </p>
         </div>
         <div class="right-column">
@@ -83,8 +76,8 @@
               <div id="corner-tl" class="corner"></div>
               <div id="corner-tr" class="corner"></div>
               <h3>Hello world :)</h3>
-              <p>
-                I'm a software engineering undergraduate student, come to connect world digital.
+              <p data-translate="intro">
+                Sou estudante de graduação em Engenharia de Software, venha conectar o mundo digital.
               </p>
               <div id="corner-br" class="corner"></div>
               <div id="corner-bl" class="corner"></div>
@@ -99,13 +92,12 @@
     <div class="main-container">
       <div class="about-wrapper">
         <div class="about-me">
-          <h4 id="about-me">More About Me</h4>
-          <p>
-            🎯 I am passionate about learning new things, meeting people, and transforming creativity into functional solutions. I chose Software Engineering to bring innovative ideas to life, combining technology and purpose.
-            Always open to challenges, I strive to collaborate, create, and continuously evolve in the world of technology.
+          <h4 id="about-me" data-translate="about_me">Mais Sobre Mim</h4>
+          <p data-translate="about_text1">
+            🎯 Sou apaixonado por aprender coisas novas, conhecer pessoas e transformar criatividade em soluções funcionais. Escolhi Engenharia de Software para dar vida a ideias inovadoras, combinando tecnologia e propósito. Sempre aberto a desafios, busco colaborar, criar e evoluir continuamente no mundo da tecnologia.
           </p>
-          <p>
-            Let's connect and explore how we can contribute to the world digital together.
+          <p data-translate="about_text2">
+            Vamos nos conectar e explorar como podemos contribuir para o mundo digital juntos.
           </p>
         </div>
       </div>
@@ -114,291 +106,283 @@
 
   <section class="s1">
     <div id="projects" class="main-container">
-      <h3>Cybersecurity</h3>
+      <h3 data-translate="cybersecurity">Cibersegurança</h3>
       <div class="article-thumbnails">
         <div class="article-box">
           <a href="https://luann8.github.io/Quiz-Cyberseguranca/">
-            <img src="https://raw.githubusercontent.com/Luann8/Quiz-Cyberseguranca/main/Captura%20de%20tela%202024-04-24%20180405.png" alt="Article 1" />
-            <p>Quiz about cybersecurity</p>
+            <img src="https://raw.githubusercontent.com/Luann8/Quiz-Cyberseguranca/main/Captura%20de%20tela%202024-04-24%20180405.png" alt="Quiz sobre cibersegurança" />
+            <p data-translate="quiz_cybersecurity">Quiz sobre cibersegurança</p>
           </a>
         </div>
         <div class="article-box">
           <a href="https://github.com/Luann8/Denial-of-Service-DoS-attack-program-written-in-Rust">
-            <img src="https://securetriad.io/wp-content/uploads/2021/06/what-is-a-ddos-attack.png" alt="Article 2" />
-            <p>Denial of Service DoS attack program written in Rust</p>
+            <img src="https://securetriad.io/wp-content/uploads/2021/06/what-is-a-ddos-attack.png" alt="Programa de ataque de negação de serviço" />
+            <p data-translate="dos_rust">Programa de ataque de negação de serviço (DoS) escrito em Rust</p>
           </a>
         </div>
         <div class="article-box">
           <a href="https://github.com/Luann8/Building-a-Password-Cracker-in-Rust">
-            <img src="https://static.vecteezy.com/system/resources/previews/007/742/097/original/penetration-testing-or-pen-test-to-analyze-a-potential-cyber-attack-and-its-potential-vulnerabilities-for-database-vector.jpg" alt="Article 3" />
-            <p>Building a Password Cracker in Rust</p>
+            <img src="https://static.vecteezy.com/system/resources/previews/007/742/097/original/penetration-testing-or-pen-test-to-analyze-a-potential-cyber-attack-and-its-potential-vulnerabilities-for-database-vector.jpg" alt="Quebrador de senhas em Rust" />
+            <p data-translate="password_cracker_rust">Construindo um quebrador de senhas em Rust</p>
           </a>
         </div>
         <div class="article-box">
           <a href="https://github.com/Luann8/Fishing-in-an-Abyss-Building-a-Password-Cracker-in-Rust">
-            <img src="https://lucidica.co.uk/wp-content/uploads/2018/11/cartoon-hacking-phishing.jpg" alt="Article 3" />
-            <p>Fishing in the Abyss: Building a Password Cracker in Rust</p>
+            <img src="https://lucidica.co.uk/wp-content/uploads/2018/11/cartoon-hacking-phishing.jpg" alt="Pescando no Abismo: Quebrador de senhas" />
+            <p data-translate="fishing_password_cracker">Pescando no Abismo: Construindo um quebrador de senhas em Rust</p>
           </a>
         </div>
         <div class="article-box">
           <a href="https://github.com/Luann8/Firewall-generic-Rust">
-            <img src="https://static.vecteezy.com/system/resources/previews/000/483/330/non_2x/internet-security-concept-vector.jpg" alt="Article 3" />
-            <p>Generic firewall Rust</p>
+            <img src="https://static.vecteezy.com/system/resources/previews/000/483/330/non_2x/internet-security-concept-vector.jpg" alt="Firewall genérico em Rust" />
+            <p data-translate="firewall_rust">Firewall genérico em Rust</p>
           </a>
         </div>
         <div class="article-box">
           <a href="https://github.com/Luann8/Rust-Vulnerability-Scanner">
-            <img src="https://th.bing.com/th/id/OIP.cu7_As425V6r1MSOhJ1OWgHaE8?rs=1&pid=ImgDetMain" alt="Article 3" />
-            <p>Rust Vulnerability Scanner</p>
+            <img src="https://th.bing.com/th/id/OIP.cu7_As425V6r1MSOhJ1OWgHaE8?rs=1&pid=ImgDetMain" alt="Scanner de vulnerabilidades em Rust" />
+            <p data-translate="vulnerability_scanner">Scanner de vulnerabilidades em Rust</p>
           </a>
         </div>
       </div>
     </div>
     <div class="main-container">
-      <h3>Data science</h3>
+      <h3 data-translate="data_science">Ciência de Dados</h3>
       <div class="article-thumbnails">
         <div class="article-box">
           <a href="https://github.com/Luann8/The-Golden-Gate-Bridge-and-what-its-Makeover-with-Duct-Tape-would-look-like">
-            <img src="https://www.researchgate.net/publication/338145377/figure/fig1/AS:839638356865025@1577196792605/Overview-of-the-Yeongjong-Bridge-a-Suspension-bridge-b-Truss-sections_Q320.jpg" alt="Article 1" />
-            <p>The Golden Gate Bridge and what its "Makeover" with Duct Tape would look like</p>
+            <img src="https://www.researchgate.net/publication/338145377/figure/fig1/AS:839638356865025@1577196792605/Overview-of-the-Yeongjong-Bridge-a-Suspension-bridge-b-Truss-sections_Q320.jpg" alt="Ponte Golden Gate" />
+            <p data-translate="golden_gate">A Ponte Golden Gate e como seria sua "reforma" com fita adesiva</p>
           </a>
         </div>
         <div class="article-box">
           <a href="https://github.com/Luann8/API-Banco-Central-Python-10000-denominacoes">
-            <img src="https://finanzaspy.com/wp-content/uploads/2023/02/Design-sem-nome-2023-02-01T152920.561.png" alt="Article 2" />
-            <p>API Central Bank of Brazil Python 10000 denominations</p>
+            <img src="https://finanzaspy.com/wp-content/uploads/2023/02/Design-sem-nome-2023-02-01T152920.561.png" alt="API Banco Central" />
+            <p data-translate="central_bank_api">API do Banco Central do Brasil em Python com 10.000 denominações</p>
           </a>
         </div>
         <div class="article-box">
           <a href="https://github.com/Luann8/Matplotlib-Python-Pandas-Criando-graficos-Cotacao-da-bolsa-de-Nova-York">
-            <img src="https://thumbs.dreamstime.com/b/new-york-stock-exchange-united-states-flat-car-cartoon-style-historic-sight-showplace-attraction-web-site-vector-illustration-71823966.jpg" alt="Article 3" />
-            <p>Matplotlib, Python, Pandas Creating Charts, New York Stock Exchange Price</p>
+            <img src="https://thumbs.dreamstime.com/b/new-york-stock-exchange-united-states-flat-car-cartoon-style-historic-sight-showplace-attraction-web-site-vector-illustration-71823966.jpg" alt="Gráficos da Bolsa de Nova York" />
+            <p data-translate="nyse_charts">Matplotlib, Python, Pandas criando gráficos da cotação da Bolsa de Nova York</p>
           </a>
         </div>
         <div class="article-box">
           <a href="https://github.com/Luann8/Flight-Delay-Prediction-Enhancing-Accuracy-with-Improved-Feature-Scaling-and-Model-Training">
-            <img src="https://cdn.open-pr.com/L/1/L102115737_g.jpg" alt="Article 3" />
-            <p>Flight Delay Prediction Enhancing Accuracy with Improved Feature Scaling and Model Training</p>
+            <img src="https://cdn.open-pr.com/L/1/L102115737_g.jpg" alt="Previsão de atrasos de voos" />
+            <p data-translate="flight_delay">Previsão de atrasos de voos com maior precisão usando escalonamento de recursos e treinamento de modelo</p>
           </a>
         </div>
         <div class="article-box">
           <a href="https://github.com/Luann8/Pandas-python-mais-de-9k-produtos">
-            <img src="https://github.com/Luann8/Pandas-python-mais-de-9k-produtos/assets/133384636/8819e8b1-ffe7-4218-9df1-d6d85c1f886b" alt="Article 3" />
-            <p>Pandas python more of 9k products</p>
+            <img src="https://github.com/Luann8/Pandas-python-mais-de-9k-produtos/assets/133384636/8819e8b1-ffe7-4218-9df1-d6d85c1f886b" alt="Pandas com 9 mil produtos" />
+            <p data-translate="pandas_products">Pandas em Python com mais de 9 mil produtos</p>
           </a>
         </div>
       </div>
     </div>
     <br>
-    <section class="s1">
-      <div class="main-container">
-        <h3>Developer</h3>
+    <div class="main-container">
+      <h3 data-translate="developer">Desenvolvedor</h3>
+      <div class="article-thumbnails">
+        <div class="article-box">
+          <a href="https://github.com/Luann8/Migrating-from-SQLite-to-PostgreSQL-in-a-Django-Project">
+            <img src="https://blog.nextideatech.com/wp-content/uploads/2022/08/django_postgres.png" alt="Migração Django" />
+            <p data-translate="django_migration">Migração de SQLite para PostgreSQL em um projeto Django</p>
+          </a>
+        </div>
+        <div class="article-box">
+          <a href="https://github.com/Luann8/Installing-Rust-and-Go-on-Kali-Linux">
+            <img src="https://th.bing.com/th/id/OIP.UnCGMqZzILAb6alYo6j9sAAAAA?rs=1&pid=ImgDetMain" alt="Instalação Rust e Go" />
+            <p data-translate="rust_go_kali">Instalando Rust e Go no Kali Linux</p>
+          </a>
+        </div>
+        <div class="article-box">
+          <a href="https://www.amazon.com/gp/product/B0CXNJS9XW">
+            <img src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/refs/heads/main/iga.jpg" alt="Aplicativos de prazos" />
+            <p data-translate="deadline_apps">Aplicativos e ferramentas de gerenciamento de prazos integrados com Gmail são valiosos para gestão ambiental</p>
+          </a>
+        </div>
+        <div class="article-box">
+          <a href="https://github.com/Luann8/Language-Battle-Rust-vs-C-vs-JavaScript-vs-Python-vs-Golang">
+            <img src="https://github.com/Luann8/Language-Battle-Rust-vs-C-vs-JavaScript-vs-Python/blob/main/download.png?raw=true" alt="Comparação de linguagens" />
+            <p data-translate="language_comparison">Comparação de linguagens de programação</p>
+          </a>
+        </div>
+        <div class="article-box">
+          <a href="https://github.com/Luann8/Image-creator-llama2">
+            <img src="https://refrimaq.org/wp-content/uploads/2024/08/calculadora-de-btus-por-m2.webp" alt="Calculadora de BTU" />
+            <p data-translate="btu_calculator">Documentação e Figma para aplicativo calculadora de BTU - Disciplina: Análise de Requisitos e Sistemas</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="main-container">
+      <section class="s1">
+        <h3 data-translate="devops">DevOps</h3>
         <div class="article-thumbnails">
           <div class="article-box">
-            <a href="https://github.com/Luann8/Migrating-from-SQLite-to-PostgreSQL-in-a-Django-Project">
-              <img src="https://blog.nextideatech.com/wp-content/uploads/2022/08/django_postgres.png" alt="Article 1" />
-              <p>Migrating from SQLite to PostgreSQL in a Django Project</p>
+            <a href="https://luann8.github.io/Database-Technologies/">
+              <img src="https://birksmediagroup.com/assets/images/yilu-proxy-datacenter-proxies.png" alt="Tecnologias de banco de dados" />
+              <p data-translate="database_technologies">Tecnologias de banco de dados</p>
             </a>
           </div>
           <div class="article-box">
             <a href="https://github.com/Luann8/Installing-Rust-and-Go-on-Kali-Linux">
-              <img src="https://th.bing.com/th/id/OIP.UnCGMqZzILAb6alYo6j9sAAAAA?rs=1&pid=ImgDetMain" alt="Article 2" />
-              <p>Installing Rust and Go on Kali Linux</p>
+              <img src="https://www.greeneggsandram.com/wp-content/uploads/2018/11/cloud-services-1200x800.jpg" alt="Comparador de preços em nuvem" />
+              <p data-translate="cloud_comparator">Comparador de preços de armazenamento em nuvem (AWS, Azure e Google Cloud)</p>
             </a>
           </div>
           <div class="article-box">
-            <a href="https://www.amazon.com/gp/product/B0CXNJS9XW">
-              <img src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/refs/heads/main/iga.jpg" alt="Article 3" />
-              <p>Deadline management apps and tools integrated with Gmail are valuable for environmental management</p>
+            <a href="https://github.com/Luann8/The-Million-Dollar-Problem-in-Rust">
+              <img src="https://th.bing.com/th/id/OIP.SaQ_Y0Yr26tcLtXSxA093gHaF_?w=495&h=400&rs=1&pid=ImgDetMain" alt="Problema do milhão de dólares" />
+              <p data-translate="million_dollar_rust">O problema do milhão de dólares em Rust</p>
             </a>
           </div>
           <div class="article-box">
-            <a href="https://github.com/Luann8/Language-Battle-Rust-vs-C-vs-JavaScript-vs-Python-vs-Golang">
-              <img src="https://github.com/Luann8/Language-Battle-Rust-vs-C-vs-JavaScript-vs-Python/blob/main/download.png?raw=true" alt="Article 3" />
-              <p>Comparison of Programming Languages</p>
+            <a href="https://github.com/Luann8/Using-Go-with-Terraform">
+              <img src="https://github.com/Luann8/Using-Go-with-Terraform/blob/main/OIP%20(1).jpg?raw=true" alt="Go com Terraform" />
+              <p data-translate="go_terraform">Usando Go com Terraform</p>
             </a>
           </div>
           <div class="article-box">
-            <a href="https://github.com/Luann8/Image-creator-llama2">
-              <img src="https://refrimaq.org/wp-content/uploads/2024/08/calculadora-de-btus-por-m2.webp" alt="Article 3" />
-              <p>Documentation and Figma for BTU Calculator App - Class: Requirements and Systems Analysis</p>
+            <a href="https://github.com/Luann8/Rust-Azure-Blob-Storage-API">
+              <img src="https://pixhost.icu/avaxhome/47/a2/0067a247.jpg" alt="API Azure Blob Storage" />
+              <p data-translate="azure_blob_rust">API de armazenamento de blobs do Azure em Rust</p>
             </a>
           </div>
         </div>
-      </div>
-      <br>
-      <div class="main-container">
-        <section class="s1S">
-          <h3>DevOps</h3>
-          <div class="article-thumbnails">
-            <div class="article-box">
-              <a href="https://luann8.github.io/Database-Technologies/">
-                <img src="https://birksmediagroup.com/assets/images/yilu-proxy-datacenter-proxies.png" alt="Article 1" />
-                <p>Database Technologies</p>
-              </a>
-            </div>
-            <div class="article-box">
-              <a href="https://github.com/Luann8/Installing-Rust-and-Go-on-Kali-Linux">
-                <img src="https://www.greeneggsandram.com/wp-content/uploads/2018/11/cloud-services-1200x800.jpg" alt="Article 2" />
-                <p>Cloud-Storage price comparator(Aws,Azure e Google cloud)</p>
-              </a>
-            </div>
-            <div class="article-box">
-              <a href="https://github.com/Luann8/The-Million-Dollar-Problem-in-Rust">
-                <img src="https://th.bing.com/th/id/OIP.SaQ_Y0Yr26tcLtXSxA093gHaF_?w=495&h=400&rs=1&pid=ImgDetMain" alt="Article 3" />
-                <p>The million dollar problem in rust</p>
-              </a>
-            </div>
-            <div class="article-box">
-              <a href="https://github.com/Luann8/Using-Go-with-Terraform">
-                <img src="https://github.com/Luann8/Using-Go-with-Terraform/blob/main/OIP%20(1).jpg?raw=true" alt="Article 3" />
-                <p>Using Go with Terraform </p>
-              </a>
-            </div>
-            <div class="article-box">
-              <a href="https://github.com/Luann8/Rust-Azure-Blob-Storage-API">
-                <img src="https://pixhost.icu/avaxhome/47/a2/0067a247.jpg" alt="Article 3" />
-                <p>Rust Azure Blob Storage API</p>
-              </a>
-            </div>
+      </section>
+    </div>
+  </section>
+  <section class="s2">
+    <div class="main-container">
+      <div id="courses" class="right-column">
+        <div id="preview-shadow">
+          <div id="preview">
+            <div id="corner-tl" class="corner"></div>
+            <div id="corner-tr" class="corner"></div>
+            <h3 data-translate="courses">Cursos</h3>
+            <p data-translate="courses_text">
+              Foram realizados em inglês e português, mas também entendo espanhol
+            </p>
+            <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/details/certifications/" target="_blank" data-translate="see_certifications">Ver todas as certificações</a>
+            <div id="corner-br" class="corner"></div>
+            <div id="corner-bl" class="corner"></div>
           </div>
-        </section>
+        </div>
       </div>
-    </section>
-    <section class="s2">
-      <div class="main-container">
-        <div id="curses" class="right-column">
-          <div id="preview-shadow">
-            <div id="preview">
-              <div id="corner-tl" class="corner"></div>
-              <div id="corner-tr" class="corner"></div>
-              <h3>Courses</h3>
-              <p>
-                They were done in English and Portuguese but I also understand Spanish
-              </p>
-              <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/details/certifications/" target="_blank">See all certifications</a>
-              <div id="corner-br" class="corner"></div>
-              <div id="corner-bl" class="corner"></div>
-            </div>
+      <br><br><br><br>
+    </div>
+  </section>
+  <section class="s1">
+    <div id="experience" class="main-container">
+      <h3 data-translate="experience">Experiência</h3>
+      <ul class="favorite-courses-list">
+        <div>
+          <strong class="job-title" data-translate="qa_job">QA</strong>
+          <br>
+          <strong class="company-name">Gröwnt</strong>
+          <p class="dates" data-translate="qa_dates">Jun 2025 - Presente · 1 mês</p>
+          <p data-translate="brazil_remote">Brasil · Remoto</p>
+          <p data-translate="qa_description">Como testador QA na Gröwnt, garanto a qualidade do software projetando e executando planos de teste abrangentes, incluindo testes funcionais, de regressão e de desempenho. Utilizo ferramentas como Selenium para testes automatizados, Jira para rastreamento de bugs e Postman para testes de API para identificar defeitos e melhorar a experiência do usuário. Minhas responsabilidades incluem escrever casos de teste detalhados, realizar testes exploratórios e colaborar com desenvolvedores para resolver problemas, garantindo produtos de software robustos e confiáveis.</p>
+          <div class="skills">
+            <span data-translate="software_documentation">Documentação de software</span> - <span data-translate="software_testing">Teste de software</span> - <span data-translate="automated_testing">Testes automatizados</span>
           </div>
         </div>
         <br>
+        <div>
+          <strong class="job-title" data-translate="developer_job">Desenvolvedor</strong>
+          <br>
+          <strong class="company-name">HRV4Life Saúde e Performance</strong>
+          <p class="dates" data-translate="developer_dates">Nov 2024 - Jun 2025 · 8 meses</p>
+          <p data-translate="brazil_remote">Brasil · Remoto</p>
+          <p data-translate="developer_description">Desenvolvimento e manutenção de aplicações web utilizando Flutter para o front-end e Laravel no back-end. Minhas atividades incluíram a criação de novos recursos, melhorias em funcionalidades existentes, correção de falhas, suporte e participação em processos de teste, deploy e documentação técnica.</p>
+          <div class="skills">
+            <span data-translate="web_services">Serviços web</span> - <span>Flutter</span> - <span>Laravel</span> - <span data-translate="deploy">Deploy</span> - <span data-translate="technical_documentation">Documentação técnica</span>
+          </div>
+        </div>
         <br>
+        <div>
+          <strong class="job-title" data-translate="assistant_job">Assistente</strong>
+          <br>
+          <strong class="company-name">Gameficada · Estágio</strong>
+          <p class="dates" data-translate="assistant_dates">Set 2024 - Nov 2024 · 3 meses</p>
+          <p data-translate="vassouras_inperson">Vassouras, Rio de Janeiro, Brasil · Presencial</p>
+          <p data-translate="assistant_description">Aplicar os conhecimentos adquiridos em sala de aula para resolver problemas práticos. Gerenciar a sala de aula gamificada, criando um ambiente de aprendizado envolvente e garantindo o bom funcionamento dos computadores. Ministrei curso introdutório de tecnologia, abordando temas da informática.</p>
+          <div class="skills"></div>
+        </div>
         <br>
+        <div>
+          <strong class="job-title" data-translate="data_structures_monitor">Monitor de Estruturas de Dados e Estruturas de Dados Avançadas</strong>
+          <br>
+          <strong class="company-name">Univassouras</strong>
+          <p class="dates" data-translate="data_structures_dates">2024 · 8 meses</p>
+          <p data-translate="data_structures_description">Auxiliei os alunos na compreensão de conceitos de estruturas de dados como listas, pilhas, filas, árvores e grafos. Apoiei o desenvolvimento de algoritmos eficientes e a otimização de aplicações, promovendo conhecimento prático e teórico sobre organização de dados em computadores.</p>
+          <div class="skills"></div>
+        </div>
+        <br>
+        <div>
+          <strong class="job-title" data-translate="support_team">Equipe de Suporte</strong>
+          <br>
+          <strong class="company-name">DMS Logistics em parceria com Univassouras</strong>
+          <p class="dates" data-translate="support_dates">Jan 2024 - Mar 2024 · 3 meses</p>
+          <p data-translate="international_remote">Internacional · Remoto</p>
+          <p data-translate="support_description">O profissional de suporte é o ponto de contato entre os funcionários da empresa, resolvendo problemas técnicos e oferecendo orientação.</p>
+          <div class="skills"></div>
+        </div>
+        <br>
+        <div>
+          <strong class="job-title" data-translate="web_programming_monitor">Monitor de Laboratório de Programação Web</strong>
+          <br>
+          <strong class="company-name">Univassouras</strong>
+          <p class="dates" data-translate="web_programming_dates">Ago 2023 - Jan 2024 · 6 meses</p>
+          <p data-translate="web_programming_description">Os alunos aprendem a desenvolver e aprimorar habilidades práticas na criação de sites e aplicações web. Eles exploram linguagens de marcação como HTML, estilização com CSS e funcionalidades dinâmicas com JavaScript. Por meio de projetos práticos e exercícios, os alunos ganham experiência na construção de interfaces interativas e responsivas, preparando-se para desafios do mundo real na indústria de desenvolvimento web.</p>
+          <div class="skills"></div>
+        </div>
+        <br>
+        <div>
+          <strong class="job-title" data-translate="hackathon">Hackathon 23.1</strong>
+          <br>
+          <strong class="company-name">DMSficada</strong>
+          <p class="dates" data-translate="hackathon_dates">Mar 2023</p>
+          <p data-translate="vassouras_inperson">Vassouras, Rio de Janeiro, Brasil · Presencial</p>
+          <p data-translate="hackathon_description">Concebi um sistema que foi implementado na empresa para o monitoramento de Apple Air Tags, sendo um dos primeiros desse tipo no Ocidente.</p>
+          <div class="skills"></div>
+        </div>
+      </ul>
+    </div>
+  </section>
+  <section class="s2">
+    <h3 id="contact" style="text-align: center;" data-translate="contact">Entre em Contato</h3>
+    <div class="main-container" style="text-align: center;">
+      <img src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/refs/heads/main/image.png" width="200px" style="max-width: 100%;" alt="Ícone de contato com telefone">
+      <div class="social">
+        <br>
+        <a target="_blank" href="https://luann8.github.io/LinkTree/" style="text-decoration: none; color: #007BFF; font-weight: bold;" data-translate="visit_linktree">
+          Visite Meu LinkTree
+        </a>
         <br>
       </div>
-    </section>
-    <section class="s1">
-      <div id="experience" class="main-container">
-        <h3>Experience</h3>
-        <ul class="favorite-courses-list">
-          <div>
-            <strong class="job-title">QA</strong>
-            <br>
-            <strong class="company-name">Gröwnt</strong>
-            <p class="dates">Jun 2025 - Present · 1 month</p>
-            <p>Brazil · Remote</p>
-            <p>As a QA Tester at Gröwnt, I ensure software quality by designing and executing comprehensive test plans, including functional, regression, and performance testing. I utilize tools like Selenium for automated testing, Jira for bug tracking, and Postman for API testing to identify defects and enhance user experience. My responsibilities include writing detailed test cases, performing exploratory testing, and collaborating with developers to resolve issues, ensuring robust and reliable software products.</p>
-            <div class="skills">
-              <span>Documentação de software</span>, <span>Teste de software</span>, <span>Testes automatizados</span>, <span>Selenium</span>, <span>Jira</span>, <span>Postman</span>
-            </div>
-          </div>
-          <br>
-          <div>
-            <strong class="job-title">Desenvolvedor</strong>
-            <br>
-            <strong class="company-name">HRV4Life Saúde e Performance</strong>
-            <p class="dates">Nov 2024 - Jun 2025 · 8 months</p>
-            <p>Brazil · Remote</p>
-            <p>Desenvolvimento e manutenção de aplicações web utilizando Flutter para o front-end e Laravel no back-end. Minhas atividades incluíram a criação de novos recursos, melhorias em funcionalidades existentes, correção de falhas, suporte e participação em processos de teste, deploy e documentação técnica.</p>
-            <div class="skills">
-              <span>Serviços web</span>, <span>Flutter</span>, <span>Laravel</span>, <span>Documentação técnica</span>
-            </div>
-          </div>
-          <br>
-          <div>
-            <strong class="job-title">Assistente</strong>
-            <br>
-            <strong class="company-name">Gameficada · Estágio</strong>
-            <p class="dates">Sep 2024 - Nov 2024 · 3 months</p>
-            <p>Vassouras, Rio de Janeiro, Brazil · In-Person</p>
-            <p>Aplicar os conhecimentos adquiridos em sala de aula para resolver problemas práticos. Gerenciar a sala de aula gamificada, criando um ambiente de aprendizado envolvente e garantindo o bom funcionamento dos computadores. Ministrei curso introdutório de tecnologia, abordando temas da informática.</p>
-            <div class="skills">
-            </div>
-          </div>
-          <br>
-          <div>
-            <strong class="job-title">Data Structures and Advanced Data Structures Monitor</strong>
-            <br>
-            <strong class="company-name">Univassouras</strong>
-            <p class="dates">2024 · 8 months</p>
-            <p>I assisted students in understanding concepts of data structures such as lists, stacks, queues, trees, and graphs. I supported the development of efficient algorithms and the optimization of applications, promoting both practical and theoretical knowledge about data organization in computers.</p>
-            <div class="skills">
-            </div>
-          </div>
-          <br>
-          <div>
-            <strong class="job-title">Support Team</strong>
-            <br>
-            <strong class="company-name">DMS Logistics in partnership with Univassouras</strong>
-            <p class="dates">Jan 2024 - Mar 2024 · 3 months</p>
-            <p>International · Remote</p>
-            <p>The support professional is the point of contact between company employees, resolving technical issues and offering guidance.</p>
-            <div class="skills">
-            </div>
-          </div>
-          <br>
-          <div>
-            <strong class="job-title">Web Programming Lab Monitor</strong>
-            <br>
-            <strong class="company-name">Univassouras</strong>
-            <p class="dates">Aug 2023 - Jan 2024 · 6 months</p>
-            <p>Students learn to develop and enhance practical skills in creating websites and web applications. They explore markup languages like HTML, styling with CSS, and dynamic functionalities with JavaScript. Through practical projects and exercises, students gain experience in building interactive and responsive interfaces, preparing them for real-world challenges in the web development industry.</p>
-            <div class="skills">
-            </div>
-          </div>
-          <br>
-          <div>
-            <strong class="job-title">Hackathon 23.1</strong>
-            <br>
-            <strong class="company-name">DMSficada</strong>
-            <p class="dates">Mar 2023</p>
-            <p>Vassouras, Rio de Janeiro, Brazil · In-Person</p>
-            <p>I conceptualized a system that was incremented in the company for the monitoring of Apple Air Tags being one of the first seen like this in the West.</p>
-            <div class="skills">
-            </div>
-          </div>
-        </ul>
-      </div>
-    </section>
-    <section class="s2">
-      <h3 id="contact" style="text-align: center;">Get in Touch</h3>
-      <div class="main-container" style="text-align: center;">
-        <img src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/refs/heads/main/image.png" width="200px" style="max-width: 100%;" alt="Phone">
+    </div>
+  </section>
+
+  <section class="s1">
+    <div class="footer-basic">
+      <footer>
         <div class="social">
           <br>
-          <a target="_blank" href="https://luann8.github.io/LinkTree/" style="text-decoration: none; color: #007BFF; font-weight: bold;">
-            Visit My LinkTree
-          </a>
-          <br>
+          <a target="_blank" href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/"><i class="fa fa-linkedin"></i></a>
+          <a target="_blank" href="https://github.com/Luann8"><i class="fa fa-github"></i></a>
         </div>
-      </div>
-    </section>
-
-    <section class="s1">
-      <div class="footer-basic">
-        <footer>
-          <div class="social">
-            <br>
-            <a target="_blank" href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/"><i class="fa fa-linkedin"></i></a>
-            <a target="_blank" href="https://github.com/Luann8"><i class="fa fa-github"></i></a>
-          </div>
-          <p class="copyright">Lu4nn P3r3ir4 M3nd3s © 2024</p>
-        </footer>
-      </div>
-    </section>
-    <script type="text/javascript" src="script.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+        <p class="copyright">Lu4nn P3r3ir4 M3nd3s © 2024</p>
+      </footer>
+    </div>
+  </section>
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="translations.js"></script>
 </body>
 
 </html>
