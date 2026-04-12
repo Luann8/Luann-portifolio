@@ -2,7 +2,7 @@
 
   <p>> initializing system...</p>
   <p>> loading user: luann</p>
-  <p>> role: QA Engineer</p>
+  <p>> Software Engineer</p>
 
   <br>
 
