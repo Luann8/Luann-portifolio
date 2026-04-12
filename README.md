@@ -1,8 +1,15 @@
-<p>
-  Quer conhecer mais sobre meu trabalho e projetos? 👇
-</p>
+<div style="background-color:#0d1117; color:#00ff9c; padding:15px; border-radius:8px; font-family:monospace;">
 
-<a href="https://luann8.github.io/Luann-portifolio/" target="_blank" 
-   style="background-color:#22c55e; color:black; padding:12px 18px; border-radius:10px; text-decoration:none; font-weight:bold;">
-  👉 Clique aqui e acesse meu portfólio
-</a>
+  <p>> user@luann:~$ whoami</p>
+  <p>QA Engineer | Automation | DevSecOps</p>
+
+  <p>> user@luann:~$ open portfolio</p>
+
+  <a href="https://luann8.github.io/Luann-portifolio/" target="_blank" 
+     style="color:#00ff9c; text-decoration:none;">
+     👉 acessar_portfolio.sh
+  </a>
+
+  <p>> loading...</p>
+
+</div>
