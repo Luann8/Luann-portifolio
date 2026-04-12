@@ -13,8 +13,6 @@
      $ ./acessar_portfolio.sh
   </a>
 
-  <br><br>
-
   <p>> status: ready ✔</p>
 
 </div>
