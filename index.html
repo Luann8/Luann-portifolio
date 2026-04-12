@@ -1,388 +1,775 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-  <title>Lu4nn P3r3ir4 M3nd3s</title>
-  <meta name="description" content="Lu4nn P3r3ir4 M3nd3s, a passionate undergraduate student in Software Engineering specializing in DevOps, cybersecurity, and data science. Dedicated to mastering the creation of data insights and engineering robust firewalls for enhanced security." />
-  <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Luann Pereira Mendes | ~/portfolio</title>
+  <meta name="description" content="Portfólio de Luann Pereira Mendes - Engenheiro de Software, QA e DevOps. Visual estilo terminal moderno." />
   <link rel="icon" href="https://img.icons8.com/color/48/brazil-circular.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-  <link rel="stylesheet" type="text/css" href="default.css" />
-  <link id="theme-style" rel="stylesheet" type="text/css" href="" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      background: #0a0c10;
+      color: #e6edf3;
+      line-height: 1.55;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #0a0c10;
+      --bg-card: #111317;
+      --border: #2d2f36;
+      --accent: #7ee787;
+      --accent-dim: #3fb950;
+      --text: #e6edf3;
+      --text-dim: #8b949e;
+      --highlight: #1f6feb;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #111317; }
+    ::-webkit-scrollbar-thumb { background: #2d2f36; border-radius: 10px; }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 12, 16, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 0.8rem 0;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .logo::before {
+      content: "❯ ";
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: var(--text-dim);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 1.5rem 3rem;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 750px;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.2rem;
+      border: 2px solid var(--accent-dim);
+      transition: 0.3s;
+    }
+
+    .profile-img:hover {
+      border-color: var(--accent);
+      transform: scale(1.02);
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero .title {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .location {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    .prompt-line {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin: 1rem 0;
+    }
+
+    .prompt-line span {
+      color: var(--accent);
+    }
+
+    /* Stacks */
+    .stacks {
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    .stack-icon {
+      background: rgba(126, 231, 135, 0.06);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 0.35rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 450;
+      color: var(--text-dim);
+      transition: 0.2s;
+    }
+
+    .stack-icon:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    .stack-icon i {
+      margin-right: 0.4rem;
+      font-size: 0.7rem;
+      color: var(--accent-dim);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.5rem 1.3rem;
+      border-radius: 30px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.2s;
+      font-size: 0.75rem;
+    }
+
+    .btn-primary {
+      background: var(--accent-dim);
+      color: #0a0c10;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Seções */
+    section {
+      padding: 3.5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::before {
+      content: "$";
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Timeline - melhorada */
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent-dim), transparent);
+      opacity: 0.3;
+    }
+
+    .timeline-item {
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 16px;
+      width: 10px;
+      height: 10px;
+      background: var(--accent-dim);
+      border-radius: 50%;
+    }
+
+    .timeline-content {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 1.1rem 1.3rem;
+      border: 1px solid var(--border);
+      transition: 0.2s;
+    }
+
+    .timeline-content:hover {
+      border-color: var(--accent-dim);
+      transform: translateX(4px);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .timeline-date {
+      color: var(--text-dim);
+      font-size: 0.65rem;
+    }
+
+    .timeline-company {
+      font-weight: 450;
+      margin-bottom: 0.5rem;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+    }
+
+    .timeline-desc {
+      color: var(--text);
+      font-size: 0.8rem;
+      line-height: 1.5;
+      opacity: 0.85;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+    }
+
+    .tag {
+      background: rgba(126, 231, 135, 0.08);
+      padding: 0.15rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.6rem;
+      color: var(--accent-dim);
+      border: 1px solid var(--border);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 1.2rem;
+      border: 1px solid var(--border);
+      transition: 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-3px);
+    }
+
+    .project-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(126, 231, 135, 0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .project-icon i {
+      font-size: 1.2rem;
+      color: var(--accent-dim);
+    }
+
+    .project-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc {
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.45;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-tech span {
+      background: rgba(126, 231, 135, 0.06);
+      padding: 0.15rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.55rem;
+      color: var(--accent-dim);
+    }
+
+    .project-link {
+      color: var(--accent-dim);
+      text-decoration: none;
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+      gap: 0.6rem;
+    }
+
+    /* Certs */
+    .certs-section {
+      margin-bottom: 1.8rem;
+    }
+
+    .certs-subtitle {
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 1rem 0 0.8rem;
+      color: var(--accent);
+    }
+
+    .certs-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .cert-card {
+      background: var(--bg-card);
+      border-radius: 10px;
+      padding: 0.7rem 1rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: 0.2s;
+      min-width: 135px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .cert-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-2px);
+    }
+
+    .cert-card i {
+      font-size: 1.2rem;
+      color: var(--accent-dim);
+      margin-bottom: 0.4rem;
+    }
+
+    .cert-card h4 {
+      font-size: 0.65rem;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+
+    .cert-card p {
+      font-size: 0.55rem;
+      color: var(--text-dim);
+    }
+
+    /* Contact */
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg-card);
+      padding: 0.55rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text-dim);
+      transition: 0.2s;
+      font-size: 0.75rem;
+    }
+
+    .contact-item:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+    }
+
+    .blink {
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .menu-btn {
+        display: block;
+      }
+      section {
+        padding: 2rem 1rem;
+      }
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .timeline::before {
+        left: 4px;
+      }
+      .timeline-item {
+        padding-left: 1.2rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <div class="scroll-up-btn">
-    <i class="fas fa-angle-double-up"></i>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">~/portfolio</div>
+    <div class="menu-btn" id="menuBtn">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">~/home</a></li>
+      <li><a href="#experience">~/experience</a></li>
+      <li><a href="#projects">~/projects</a></li>
+      <li><a href="#certifications">~/certs</a></li>
+      <li><a href="#contact">~/contact</a></li>
+    </ul>
   </div>
+</nav>
 
-  <nav class="navbar">
-    <div class="max-width">
-      <div class="logo">
-        <img src="https://th.bing.com/th/id/R.56c25c04fe58dd078ff445bdd7593642?rik=8DMmN9m%2fbKEETw&riu=http%3a%2f%2fwww.ehtecnologia.com%2fwp-content%2fuploads%2f2018%2f06%2fportada-productos-eh-tecnologia-.gif&ehk=v3ggS3Cs1MU8L11RWX6DpiuK5wuYJTM%2bsbArzLOEsZY%3d&risl=&pid=ImgRaw&r=0" width="33" height="33">
-        <button class="menu-button" id="menu-button">=</button>
-      </div>
-      <ul class="menu">
-        <li><a href="#" class="menu-btn" data-translate="nav_home">Home</a></li>
-        <li><a href="#experience" class="menu-btn" data-translate="nav_experience">Experiência</a></li>
-        <li><a href="#projects" class="menu-btn" data-translate="nav_projects">Projetos</a></li>
-        <li><a href="#courses" class="menu-btn" data-translate="nav_courses">Cursos</a></li>
-        <li><a href="#contact" class="menu-btn" data-translate="nav_contact">Contato</a></li>
-      </ul>
-      <div class="language-switcher">
-        <select id="language-select" aria-label="Selecionar idioma" onchange="changeLanguage()">
-          <option value="pt" selected>Português</option>
-          <option value="en">English</option>
-          <option value="es">Español</option>
-        </select>
-      </div>
+<section id="home" class="hero">
+  <div class="hero-content">
+    <img src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/refs/heads/main/face2.jpg" alt="Luann" class="profile-img">
+    <h1>Luann Pereira Mendes</h1>
+    <div class="title">>_ Engenheiro de Software</div>
+    <div class="location">📍 Vassouras, RJ · conclusão Dez/2026</div>
+    
+    <div class="prompt-line"><span>$</span> cat skills.txt</div>
+    <div class="stacks">
+      <span class="stack-icon"><i class="fab fa-python"></i> Python</span>
+      <span class="stack-icon"><i class="fab fa-js"></i> JS/TS</span>
+      <span class="stack-icon"><i class="fab fa-node-js"></i> Node.js</span>
+      <span class="stack-icon"><i class="fab fa-docker"></i> Docker</span>
+      <span class="stack-icon"><i class="fab fa-git-alt"></i> Git</span>
+      <span class="stack-icon"><i class="fas fa-database"></i> SQL</span>
+      <span class="stack-icon"><i class="fab fa-react"></i> React</span>
+      <span class="stack-icon"><i class="fas fa-chart-line"></i> Grafana</span>
+      <span class="stack-icon"><i class="fab fa-linux"></i> Linux</span>
+      <span class="stack-icon"><i class="fas fa-link"></i> Blockchain</span>
     </div>
-  </nav>
-  <div class="scroll-up-btn">
-    <i class="fas fa-angle-double-up"></i>
+    
+    <div class="btn-group">
+      <a href="#experience" class="btn btn-primary">./trajetória</a>
+      <a href="#contact" class="btn btn-outline">./contato</a>
+    </div>
   </div>
+</section>
 
-  <section class="s1">
-    <div class="main-container">
-      <div class="greeting-wrap">
-        <br><br>
-        <h1 data-translate="greeting">Oi, eu sou Lu4nn P3r3ir4 M3nd3s</h1>
-      </div>
-      <div class="intro-wrapper">
-        <div class="nav-wrapper">
-          <div class="dots-wrapper"></div>
-          <ul id="navigation">
-            <li><img src="https://github.com/Luann8/Luann-portifolio/blob/main/minimize-maximize-close-icon-vectors-elements-web-.png?raw=true" width="70px" alt="Navigation controls"></li>
-          </ul>
-        </div>
-        <div class="left-column">
-          <img id="profile-pik" src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/main/face.jpg" alt="Lu4nn P3r3ir4 M3nd3s profile picture" />
-          <h5 style="text-align: center; line-height: 0" data-translate="customize_theme">Personalizar Tema</h5>
-          <div id="theme-option-wrapper">
-            <div data-mode="light" id="light-mode" class="theme-dot"></div>
-            <div data-mode="blue" id="blue-mode" class="theme-dot"></div>
-            <div data-mode="green" id="green-mode" class="theme-dot"></div>
-            <div data-mode="purple" id="purple-mode" class="theme-dot"></div>
+<!-- EXPERIÊNCIA - Ordem cronológica correta (mais recente primeiro) -->
+<section id="experience" style="background: var(--bg-card);">
+  <div class="container">
+    <div class="section-title"> experiência profissional</div>
+    <div class="timeline">
+      
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-title">DevSecOps (Monitoramento)</span>
+            <span class="timeline-date">Jun/2025 — Mar/2026</span>
           </div>
-          <p id="settings-note" data-translate="theme_note">
-            *As opções de tema serão salvas para<br />sua próxima visita
-          </p>
-        </div>
-        <div class="right-column">
-          <div id="preview-shadow">
-            <div id="preview">
-              <div id="corner-tl" class="corner"></div>
-              <div id="corner-tr" class="corner"></div>
-              <h3>Hello world :)</h3>
-              <p data-translate="intro">
-                Sou estudante de graduação em Engenharia de Software, venha conectar o mundo digital.
-              </p>
-              <div id="corner-br" class="corner"></div>
-              <div id="corner-bl" class="corner"></div>
-            </div>
-          </div>
+          <div class="timeline-company">Grownt · Remoto</div>
+          <div class="timeline-desc">Implementação de proxy com Grafana para monitoramento de logs e métricas. Criação de dashboards de observabilidade e apoio em verificações de qualidade pós-deploy.</div>
+          <div class="timeline-tags"><span class="tag">Grafana</span><span class="tag">monitoramento</span><span class="tag">observabilidade</span></div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="s2">
-    <div class="main-container">
-      <div class="about-wrapper">
-        <div class="about-me">
-          <h4 id="about-me" data-translate="about_me">Mais Sobre Mim</h4>
-          <p data-translate="about_text1">
-            🎯 Sou apaixonado por aprender coisas novas, conhecer pessoas e transformar criatividade em soluções funcionais. Escolhi Engenharia de Software para dar vida a ideias inovadoras, combinando tecnologia e propósito. Sempre aberto a desafios, busco colaborar, criar e evoluir continuamente no mundo da tecnologia.
-          </p>
-          <p data-translate="about_text2">
-            Vamos nos conectar e explorar como podemos contribuir para o mundo digital juntos.
-          </p>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-title">Testador de QA</span>
+            <span class="timeline-date">Jun/2025 — Jan/2026</span>
+          </div>
+          <div class="timeline-company">Grownt · Remoto</div>
+          <div class="timeline-desc">Execução de testes funcionais e de regressão para clientes 321 Fly e Equatorial. Criação de planos de teste, casos de teste e relatórios de bugs. Participação em rituais ágeis Scrum.</div>
+          <div class="timeline-tags"><span class="tag">testes funcionais</span><span class="tag">regressão</span><span class="tag">Jira</span><span class="tag">Scrum</span></div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="s1">
-    <div id="projects" class="main-container">
-      <h3 data-translate="cybersecurity">Cibersegurança</h3>
-      <div class="article-thumbnails">
-        <div class="article-box">
-          <a href="https://luann8.github.io/Quiz-Cyberseguranca/">
-            <img src="https://raw.githubusercontent.com/Luann8/Quiz-Cyberseguranca/main/Captura%20de%20tela%202024-04-24%20180405.png" alt="Quiz sobre cibersegurança" />
-            <p data-translate="quiz_cybersecurity">Quiz sobre cibersegurança</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Denial-of-Service-DoS-attack-program-written-in-Rust">
-            <img src="https://securetriad.io/wp-content/uploads/2021/06/what-is-a-ddos-attack.png" alt="Programa de ataque de negação de serviço" />
-            <p data-translate="dos_rust">Programa de ataque de negação de serviço (DoS) escrito em Rust</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Building-a-Password-Cracker-in-Rust">
-            <img src="https://static.vecteezy.com/system/resources/previews/007/742/097/original/penetration-testing-or-pen-test-to-analyze-a-potential-cyber-attack-and-its-potential-vulnerabilities-for-database-vector.jpg" alt="Quebrador de senhas em Rust" />
-            <p data-translate="password_cracker_rust">Construindo um quebrador de senhas em Rust</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Fishing-in-an-Abyss-Building-a-Password-Cracker-in-Rust">
-            <img src="https://lucidica.co.uk/wp-content/uploads/2018/11/cartoon-hacking-phishing.jpg" alt="Pescando no Abismo: Quebrador de senhas" />
-            <p data-translate="fishing_password_cracker">Pescando no Abismo: Construindo um quebrador de senhas em Rust</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Firewall-generic-Rust">
-            <img src="https://static.vecteezy.com/system/resources/previews/000/483/330/non_2x/internet-security-concept-vector.jpg" alt="Firewall genérico em Rust" />
-            <p data-translate="firewall_rust">Firewall genérico em Rust</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Rust-Vulnerability-Scanner">
-            <img src="https://th.bing.com/th/id/OIP.cu7_As425V6r1MSOhJ1OWgHaE8?rs=1&pid=ImgDetMain" alt="Scanner de vulnerabilidades em Rust" />
-            <p data-translate="vulnerability_scanner">Scanner de vulnerabilidades em Rust</p>
-          </a>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-title">Desenvolvedor Fullstack</span>
+            <span class="timeline-date">Nov/2024 — Jun/2025</span>
+          </div>
+          <div class="timeline-company">HRV4Life · Remoto</div>
+          <div class="timeline-desc">Desenvolvimento de APIs com Adonis.js (Node.js) e criação/ajustes em telas Flutter. Consumo de APIs REST para integração de dados cardíacos.</div>
+          <div class="timeline-tags"><span class="tag">Node.js</span><span class="tag">Flutter</span><span class="tag">APIs REST</span><span class="tag">Git</span></div>
         </div>
       </div>
-    </div>
-    <div class="main-container">
-      <h3 data-translate="data_science">Ciência de Dados</h3>
-      <div class="article-thumbnails">
-        <div class="article-box">
-          <a href="https://github.com/Luann8/The-Golden-Gate-Bridge-and-what-its-Makeover-with-Duct-Tape-would-look-like">
-            <img src="https://www.researchgate.net/publication/338145377/figure/fig1/AS:839638356865025@1577196792605/Overview-of-the-Yeongjong-Bridge-a-Suspension-bridge-b-Truss-sections_Q320.jpg" alt="Ponte Golden Gate" />
-            <p data-translate="golden_gate">A Ponte Golden Gate e como seria sua "reforma" com fita adesiva</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/API-Banco-Central-Python-10000-denominacoes">
-            <img src="https://finanzaspy.com/wp-content/uploads/2023/02/Design-sem-nome-2023-02-01T152920.561.png" alt="API Banco Central" />
-            <p data-translate="central_bank_api">API do Banco Central do Brasil em Python com 10.000 denominações</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Matplotlib-Python-Pandas-Criando-graficos-Cotacao-da-bolsa-de-Nova-York">
-            <img src="https://thumbs.dreamstime.com/b/new-york-stock-exchange-united-states-flat-car-cartoon-style-historic-sight-showplace-attraction-web-site-vector-illustration-71823966.jpg" alt="Gráficos da Bolsa de Nova York" />
-            <p data-translate="nyse_charts">Matplotlib, Python, Pandas criando gráficos da cotação da Bolsa de Nova York</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Flight-Delay-Prediction-Enhancing-Accuracy-with-Improved-Feature-Scaling-and-Model-Training">
-            <img src="https://cdn.open-pr.com/L/1/L102115737_g.jpg" alt="Previsão de atrasos de voos" />
-            <p data-translate="flight_delay">Previsão de atrasos de voos com maior precisão usando escalonamento de recursos e treinamento de modelo</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Pandas-python-mais-de-9k-produtos">
-            <img src="https://github.com/Luann8/Pandas-python-mais-de-9k-produtos/assets/133384636/8819e8b1-ffe7-4218-9df1-d6d85c1f886b" alt="Pandas com 9 mil produtos" />
-            <p data-translate="pandas_products">Pandas em Python com mais de 9 mil produtos</p>
-          </a>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class="main-container">
-      <h3 data-translate="developer">Desenvolvedor</h3>
-      <div class="article-thumbnails">
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Migrating-from-SQLite-to-PostgreSQL-in-a-Django-Project">
-            <img src="https://blog.nextideatech.com/wp-content/uploads/2022/08/django_postgres.png" alt="Migração Django" />
-            <p data-translate="django_migration">Migração de SQLite para PostgreSQL em um projeto Django</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Installing-Rust-and-Go-on-Kali-Linux">
-            <img src="https://th.bing.com/th/id/OIP.UnCGMqZzILAb6alYo6j9sAAAAA?rs=1&pid=ImgDetMain" alt="Instalação Rust e Go" />
-            <p data-translate="rust_go_kali">Instalando Rust e Go no Kali Linux</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://www.amazon.com/gp/product/B0CXNJS9XW">
-            <img src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/refs/heads/main/iga.jpg" alt="Aplicativos de prazos" />
-            <p data-translate="deadline_apps">Aplicativos e ferramentas de gerenciamento de prazos integrados com Gmail são valiosos para gestão ambiental</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Language-Battle-Rust-vs-C-vs-JavaScript-vs-Python-vs-Golang">
-            <img src="https://github.com/Luann8/Language-Battle-Rust-vs-C-vs-JavaScript-vs-Python/blob/main/download.png?raw=true" alt="Comparação de linguagens" />
-            <p data-translate="language_comparison">Comparação de linguagens de programação</p>
-          </a>
-        </div>
-        <div class="article-box">
-          <a href="https://github.com/Luann8/Image-creator-llama2">
-            <img src="https://refrimaq.org/wp-content/uploads/2024/08/calculadora-de-btus-por-m2.webp" alt="Calculadora de BTU" />
-            <p data-translate="btu_calculator">Documentação e Figma para aplicativo calculadora de BTU - Disciplina: Análise de Requisitos e Sistemas</p>
-          </a>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class="main-container">
-      <section class="s1">
-        <h3 data-translate="devops">DevOps</h3>
-        <div class="article-thumbnails">
-          <div class="article-box">
-            <a href="https://luann8.github.io/Database-Technologies/">
-              <img src="https://birksmediagroup.com/assets/images/yilu-proxy-datacenter-proxies.png" alt="Tecnologias de banco de dados" />
-              <p data-translate="database_technologies">Tecnologias de banco de dados</p>
-            </a>
-          </div>
-          <div class="article-box">
-            <a href="https://github.com/Luann8/Installing-Rust-and-Go-on-Kali-Linux">
-              <img src="https://www.greeneggsandram.com/wp-content/uploads/2018/11/cloud-services-1200x800.jpg" alt="Comparador de preços em nuvem" />
-              <p data-translate="cloud_comparator">Comparador de preços de armazenamento em nuvem (AWS, Azure e Google Cloud)</p>
-            </a>
-          </div>
-          <div class="article-box">
-            <a href="https://github.com/Luann8/The-Million-Dollar-Problem-in-Rust">
-              <img src="https://th.bing.com/th/id/OIP.SaQ_Y0Yr26tcLtXSxA093gHaF_?w=495&h=400&rs=1&pid=ImgDetMain" alt="Problema do milhão de dólares" />
-              <p data-translate="million_dollar_rust">O problema do milhão de dólares em Rust</p>
-            </a>
-          </div>
-          <div class="article-box">
-            <a href="https://github.com/Luann8/Using-Go-with-Terraform">
-              <img src="https://github.com/Luann8/Using-Go-with-Terraform/blob/main/OIP%20(1).jpg?raw=true" alt="Go com Terraform" />
-              <p data-translate="go_terraform">Usando Go com Terraform</p>
-            </a>
-          </div>
-          <div class="article-box">
-            <a href="https://github.com/Luann8/Rust-Azure-Blob-Storage-API">
-              <img src="https://pixhost.icu/avaxhome/47/a2/0067a247.jpg" alt="API Azure Blob Storage" />
-              <p data-translate="azure_blob_rust">API de armazenamento de blobs do Azure em Rust</p>
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
-  </section>
-  <section class="s2">
-    <div class="main-container">
-      <div id="courses" class="right-column">
-        <div id="preview-shadow">
-          <div id="preview">
-            <div id="corner-tl" class="corner"></div>
-            <div id="corner-tr" class="corner"></div>
-            <h3 data-translate="courses">Cursos</h3>
-            <p data-translate="courses_text">
-              Foram realizados em inglês e português, mas também entendo espanhol
-            </p>
-            <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/details/certifications/" target="_blank" data-translate="see_certifications">Ver todas as certificações</a>
-            <div id="corner-br" class="corner"></div>
-            <div id="corner-bl" class="corner"></div>
-          </div>
-        </div>
-      </div>
-      <br><br><br><br>
-    </div>
-  </section>
-  <section class="s1">
-    <div id="experience" class="main-container">
-      <h3 data-translate="experience">Experiência</h3>
-      <ul class="favorite-courses-list">
-        <div>
-          <strong class="job-title" data-translate="qa_job">QA</strong>
-          <br>
-          <strong class="company-name">Gröwnt</strong>
-          <p class="dates" data-translate="qa_dates">Jun 2025 - Presente · 1 mês</p>
-          <p data-translate="brazil_remote">Brasil · Remoto</p>
-          <p data-translate="qa_description">Como testador QA na Gröwnt, garanto a qualidade do software projetando e executando planos de teste abrangentes, incluindo testes funcionais, de regressão e de desempenho. Utilizo ferramentas como Selenium para testes automatizados, Jira para rastreamento de bugs e Postman para testes de API para identificar defeitos e melhorar a experiência do usuário. Minhas responsabilidades incluem escrever casos de teste detalhados, realizar testes exploratórios e colaborar com desenvolvedores para resolver problemas, garantindo produtos de software robustos e confiáveis.</p>
-          <div class="skills">
-            <span data-translate="software_documentation">Documentação de software</span> - <span data-translate="software_testing">Teste de software</span> - <span data-translate="automated_testing">Testes automatizados</span>
-          </div>
-        </div>
-        <br>
-        <div>
-          <strong class="job-title" data-translate="developer_job">Desenvolvedor</strong>
-          <br>
-          <strong class="company-name">HRV4Life Saúde e Performance</strong>
-          <p class="dates" data-translate="developer_dates">Nov 2024 - Jun 2025 · 8 meses</p>
-          <p data-translate="brazil_remote">Brasil · Remoto</p>
-          <p data-translate="developer_description">Desenvolvimento e manutenção de aplicações web utilizando Flutter para o front-end e Laravel no back-end. Minhas atividades incluíram a criação de novos recursos, melhorias em funcionalidades existentes, correção de falhas, suporte e participação em processos de teste, deploy e documentação técnica.</p>
-          <div class="skills">
-            <span data-translate="web_services">Serviços web</span> - <span>Flutter</span> - <span>Laravel</span> - <span data-translate="deploy">Deploy</span> - <span data-translate="technical_documentation">Documentação técnica</span>
-          </div>
-        </div>
-        <br>
-        <div>
-          <strong class="job-title" data-translate="assistant_job">Assistente</strong>
-          <br>
-          <strong class="company-name">Gameficada · Estágio</strong>
-          <p class="dates" data-translate="assistant_dates">Set 2024 - Nov 2024 · 3 meses</p>
-          <p data-translate="vassouras_inperson">Vassouras, Rio de Janeiro, Brasil · Presencial</p>
-          <p data-translate="assistant_description">Aplicar os conhecimentos adquiridos em sala de aula para resolver problemas práticos. Gerenciar a sala de aula gamificada, criando um ambiente de aprendizado envolvente e garantindo o bom funcionamento dos computadores. Ministrei curso introdutório de tecnologia, abordando temas da informática.</p>
-          <div class="skills"></div>
-        </div>
-        <br>
-        <div>
-          <strong class="job-title" data-translate="data_structures_monitor">Monitor de Estruturas de Dados e Estruturas de Dados Avançadas</strong>
-          <br>
-          <strong class="company-name">Univassouras</strong>
-          <p class="dates" data-translate="data_structures_dates">2024 · 8 meses</p>
-          <p data-translate="data_structures_description">Auxiliei os alunos na compreensão de conceitos de estruturas de dados como listas, pilhas, filas, árvores e grafos. Apoiei o desenvolvimento de algoritmos eficientes e a otimização de aplicações, promovendo conhecimento prático e teórico sobre organização de dados em computadores.</p>
-          <div class="skills"></div>
-        </div>
-        <br>
-        <div>
-          <strong class="job-title" data-translate="support_team">Equipe de Suporte</strong>
-          <br>
-          <strong class="company-name">DMS Logistics em parceria com Univassouras</strong>
-          <p class="dates" data-translate="support_dates">Jan 2024 - Mar 2024 · 3 meses</p>
-          <p data-translate="international_remote">Internacional · Remoto</p>
-          <p data-translate="support_description">O profissional de suporte é o ponto de contato entre os funcionários da empresa, resolvendo problemas técnicos e oferecendo orientação.</p>
-          <div class="skills"></div>
-        </div>
-        <br>
-        <div>
-          <strong class="job-title" data-translate="web_programming_monitor">Monitor de Laboratório de Programação Web</strong>
-          <br>
-          <strong class="company-name">Univassouras</strong>
-          <p class="dates" data-translate="web_programming_dates">Ago 2023 - Jan 2024 · 6 meses</p>
-          <p data-translate="web_programming_description">Os alunos aprendem a desenvolver e aprimorar habilidades práticas na criação de sites e aplicações web. Eles exploram linguagens de marcação como HTML, estilização com CSS e funcionalidades dinâmicas com JavaScript. Por meio de projetos práticos e exercícios, os alunos ganham experiência na construção de interfaces interativas e responsivas, preparando-se para desafios do mundo real na indústria de desenvolvimento web.</p>
-          <div class="skills"></div>
-        </div>
-        <br>
-        <div>
-          <strong class="job-title" data-translate="hackathon">Hackathon 23.1</strong>
-          <br>
-          <strong class="company-name">DMSficada</strong>
-          <p class="dates" data-translate="hackathon_dates">Mar 2023</p>
-          <p data-translate="vassouras_inperson">Vassouras, Rio de Janeiro, Brasil · Presencial</p>
-          <p data-translate="hackathon_description">Concebi um sistema que foi implementado na empresa para o monitoramento de Apple Air Tags, sendo um dos primeiros desse tipo no Ocidente.</p>
-          <div class="skills"></div>
-        </div>
-      </ul>
-    </div>
-  </section>
-  <section class="s2">
-    <h3 id="contact" style="text-align: center;" data-translate="contact">Entre em Contato</h3>
-    <div class="main-container" style="text-align: center;">
-      <img src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/refs/heads/main/image.png" width="200px" style="max-width: 100%;" alt="Ícone de contato com telefone">
-      <div class="social">
-        <br>
-        <a target="_blank" href="https://luann8.github.io/LinkTree/" style="text-decoration: none; color: #007BFF; font-weight: bold;" data-translate="visit_linktree">
-          Visite Meu LinkTree
-        </a>
-        <br>
-      </div>
-    </div>
-  </section>
 
-  <section class="s1">
-    <div class="footer-basic">
-      <footer>
-        <div class="social">
-          <br>
-          <a target="_blank" href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/"><i class="fa fa-linkedin"></i></a>
-          <a target="_blank" href="https://github.com/Luann8"><i class="fa fa-github"></i></a>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-title">Assistente Técnico / Instrutor</span>
+            <span class="timeline-date">Set/2024 — Nov/2024</span>
+          </div>
+          <div class="timeline-company">Gameficada · Vassouras</div>
+          <div class="timeline-desc">Ministração de aulas de informática, suporte técnico e introdução ao método Kanban.</div>
+          <div class="timeline-tags"><span class="tag">suporte</span><span class="tag">Kanban</span><span class="tag">docência</span></div>
         </div>
-        <p class="copyright">Lu4nn P3r3ir4 M3nd3s © 2024</p>
-      </footer>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-title">Monitor de Estruturas de Dados</span>
+            <span class="timeline-date">2024 · 8 meses</span>
+          </div>
+          <div class="timeline-company">Univassouras</div>
+          <div class="timeline-desc">Auxílio na compreensão de listas, pilhas, filas, árvores e grafos. Apoio no desenvolvimento de algoritmos eficientes.</div>
+          <div class="timeline-tags"><span class="tag">estruturas de dados</span><span class="tag">algoritmos</span></div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-title">Suporte Técnico Internacional</span>
+            <span class="timeline-date">Jan/2024 — Mar/2024</span>
+          </div>
+          <div class="timeline-company">DMS Logistics · Remoto</div>
+          <div class="timeline-desc">Suporte técnico para clientes internacionais, resolução de incidentes e documentação. Participação em Hackathon com sistema Air Tech.</div>
+          <div class="timeline-tags"><span class="tag">suporte internacional</span><span class="tag">documentação</span></div>
+        </div>
+      </div>
+
     </div>
-  </section>
-  <script type="text/javascript" src="script.js"></script>
-  <script type="text/javascript" src="main.js"></script>
-  <script type="text/javascript" src="translations.js"></script>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-title"> projetos em destaque</div>
+    <div class="projects-grid">
+      <div class="project-card"><div class="project-icon"><i class="fas fa-brain"></i></div><div class="project-title">Llama3 Local + SQLite</div><div class="project-desc">IA local com Ollama + LangChain para queries em linguagem natural convertidas em SQL.</div><div class="project-tech"><span>Python</span><span>LangChain</span><span>SQLite</span></div><a href="https://github.com/Luann8/Llama3-Local" class="project-link">github →</a></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-cloud-upload-alt"></i></div><div class="project-title">DevOps Lab</div><div class="project-desc">Infraestrutura como código com Docker, Ansible e Vagrant. Automação e orquestração de containers.</div><div class="project-tech"><span>Docker</span><span>Ansible</span><span>Vagrant</span></div><a href="https://github.com/Luann8/devops" class="project-link">github →</a></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-calculator"></i></div><div class="project-title">Calculadora de BTUs</div><div class="project-desc">Aplicação web com React + Node.js para cálculo de potência de ar-condicionado e busca de instaladores.</div><div class="project-tech"><span>React</span><span>Node.js</span><span>Express</span></div><a href="https://github.com/Luann8/Backend-uv-btus" class="project-link">github →</a></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-mobile-alt"></i></div><div class="project-title">Gerenciador Flutter + SQLite</div><div class="project-desc">CRUD completo de categorias e produtos com relacionamento, banco local SQLite.</div><div class="project-tech"><span>Flutter</span><span>Dart</span><span>SQLite</span></div><a href="https://github.com/Luann8/Gerenciador_de_Categorias_Produtos_Crud_sqlite_Dart" class="project-link">github →</a></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-tachometer-alt"></i></div><div class="project-title">Comparação de Linguagens</div><div class="project-desc">Benchmark comparativo entre Rust, Go, Python, C e JavaScript.</div><div class="project-tech"><span>Rust</span><span>Go</span><span>Python</span><span>C</span><span>JS</span></div><a href="https://github.com/Luann8/Time-comparation-Rust-Golang-Python-C-JS" class="project-link">github →</a></div>
+      <div class="project-card"><div class="project-icon"><i class="fas fa-university"></i></div><div class="project-title">API Banco Central</div><div class="project-desc">Análise e processamento de mais de 10.000 denominações financeiras com Python e Pandas.</div><div class="project-tech"><span>Python</span><span>Pandas</span><span>APIs</span></div><a href="https://github.com/Luann8/API-Banco-Central-Python-10000-denominacoes" class="project-link">github →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" style="background: var(--bg-card);">
+  <div class="container">
+    <div class="section-title"> certificações</div>
+    
+    <div class="certs-section">
+      <div class="certs-subtitle">❯ Microsoft</div>
+      <div class="certs-grid">
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7200650903379435521/" target="_blank" class="cert-card"><i class="fab fa-microsoft"></i><h4>AZ-400: DevOps</h4><p>2024</p></a>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7200653039119011840/" target="_blank" class="cert-card"><i class="fab fa-docker"></i><h4>Gerenciar contêineres</h4><p>2024</p></a>
+        <a href="https://learn.microsoft.com/api/achievements/share/pt-br/luannpereiramendes-8295/ETUJGSRP?sharingId=435896C3A9CDC588" target="_blank" class="cert-card"><i class="fab fa-git-alt"></i><h4>Inner Source</h4><p>Microsoft</p></a>
+        <a href="https://learn.microsoft.com/api/achievements/share/pt-br/luannpereiramendes-8295/HREY2278?sharingId=435896C3A9CDC588" target="_blank" class="cert-card"><i class="fas fa-server"></i><h4>Dívida técnica</h4><p>Microsoft</p></a>
+      </div>
+    </div>
+
+    <div class="certs-section">
+      <div class="certs-subtitle">❯ Linux Foundation</div>
+      <div class="certs-grid">
+        <a href="https://www.credly.com/badges/8d942f97-c51e-4fa7-94d2-c297b387039d/" target="_blank" class="cert-card"><i class="fab fa-linux"></i><h4>Introduction to Linux</h4><p>2026</p></a>
+        <a href="https://www.credly.com/badges/a8d3b519-451b-49d0-9034-82c7d7a7929c" target="_blank" class="cert-card"><i class="fas fa-server"></i><h4>free5GC</h4><p>2026</p></a>
+      </div>
+    </div>
+
+    <div class="certs-section">
+      <div class="certs-subtitle">❯ AWS</div>
+      <div class="certs-grid">
+        <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/overlay/Certifications/206160918/treasury/" target="_blank" class="cert-card"><i class="fab fa-aws"></i><h4>Advanced Testing</h4><p>2026</p></a>
+        <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/overlay/Certifications/205241560/treasury/" target="_blank" class="cert-card"><i class="fab fa-aws"></i><h4>AWS Observability</h4><p>2026</p></a>
+      </div>
+    </div>
+
+    <div class="certs-section">
+      <div class="certs-subtitle">❯ Blockchain & Dev</div>
+      <div class="certs-grid">
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7216969416452812800/" target="_blank" class="cert-card"><i class="fas fa-link"></i><h4>Blockchain</h4><p>em andamento</p></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-title"> contato</div>
+    <div class="contact-links">
+      <a href="https://wa.me/5524993276098" class="contact-item"><i class="fab fa-whatsapp"></i> (24) 99327-6098</a>
+      <a href="mailto:luannpmendes@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> luannpmendes@gmail.com</a>
+      <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/Luann8" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://luann8.github.io/LinkTree/" class="contact-item"><i class="fas fa-link"></i> LinkTree</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>luann@portfolio:~$ echo "disponível para oportunidades" <span class="blink">█</span></p>
+  <p style="margin-top: 0.5rem;">© 2025 Luann Pereira Mendes · Engenheiro de Software & QA</p>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    if (navLinks.style.display === 'flex') {
+      navLinks.style.display = 'none';
+    } else {
+      navLinks.style.display = 'flex';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '60px';
+      navLinks.style.left = '0';
+      navLinks.style.width = '100%';
+      navLinks.style.background = '#0a0c10';
+      navLinks.style.padding = '1.2rem';
+      navLinks.style.gap = '0.8rem';
+      navLinks.style.borderBottom = '1px solid #2d2f36';
+    }
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        if (navLinks.style.display === 'flex') navLinks.style.display = 'none';
+      }
+    });
+  });
+</script>
 </body>
-
 </html>
