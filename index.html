@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Luann Pereira Mendes | ~/portfolio</title>
-  <meta name="description" content="Portfólio de Luann Pereira Mendes - Engenheiro de Software, QA e DevOps. Visual estilo terminal moderno." />
+  <meta name="description"
+    content="Portfólio de Luann Pereira Mendes - Engenheiro de Software, QA e DevOps. Visual estilo terminal moderno." />
   <link rel="icon" href="https://img.icons8.com/color/48/brazil-circular.png" type="image/png">
-  
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+
   <style>
     * {
       margin: 0;
@@ -18,33 +21,109 @@
     }
 
     body {
-      font-family: 'JetBrains Mono', 'Fira Code', monospace;
-      background: #0a0c10;
-      color: #e6edf3;
+      font-family: var(--font-family);
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.55;
       scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
     }
 
-    :root {
+    body::after {
+      content: " ";
+      display: var(--crt-scan, none);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+      background-size: 100% 4px, 6px 100%;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    :root,
+    [data-theme="default"] {
       --bg: #0a0c10;
+      --bg-rgb: 10, 12, 16;
       --bg-card: #111317;
+      --bg-card-rgb: 17, 19, 23;
       --border: #2d2f36;
       --accent: #7ee787;
+      --accent-rgb: 126, 231, 135;
       --accent-dim: #3fb950;
+      --accent-dim-rgb: 63, 185, 80;
       --text: #e6edf3;
       --text-dim: #8b949e;
+      --font-family: 'JetBrains Mono', 'Fira Code', monospace;
     }
 
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #111317; }
-    ::-webkit-scrollbar-thumb { background: #3fb950; border-radius: 10px; }
+    [data-theme="cyberpunk"] {
+      --bg: #050510;
+      --bg-rgb: 5, 5, 16;
+      --bg-card: #0d0d26;
+      --bg-card-rgb: 13, 13, 38;
+      --border: #ff00ff;
+      --accent: #00ffff;
+      --accent-rgb: 0, 255, 255;
+      --accent-dim: #ff00ff;
+      --accent-dim-rgb: 255, 0, 255;
+      --text: #e0e0ff;
+      --text-dim: #8a8aeb;
+      --font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    [data-theme="retro"] {
+      --bg: #000000;
+      --bg-rgb: 0, 0, 0;
+      --bg-card: #051005;
+      --bg-card-rgb: 5, 16, 5;
+      --border: #00ff00;
+      --accent: #00ff00;
+      --accent-rgb: 0, 255, 0;
+      --accent-dim: #00aa00;
+      --accent-dim-rgb: 0, 170, 0;
+      --text: #00ff00;
+      --text-dim: #00aa00;
+      --font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    [data-theme="google"] {
+      --bg: #ffffff;
+      --bg-rgb: 255, 255, 255;
+      --bg-card: #f8f9fa;
+      --bg-card-rgb: 248, 249, 250;
+      --border: #dadce0;
+      --accent: #1a73e8;
+      --accent-rgb: 26, 115, 232;
+      --accent-dim: #ea4335;
+      --accent-dim-rgb: 234, 67, 53;
+      --text: #202124;
+      --text-dim: #5f6368;
+      --font-family: 'Inter', Roboto, sans-serif;
+    }
+
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-card);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-dim);
+      border-radius: 10px;
+    }
 
     /* Navbar */
     .navbar {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(10, 12, 16, 0.95);
+      background: rgba(var(--bg-rgb), 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 1000;
@@ -69,6 +148,29 @@
     .logo::before {
       content: "❯ ";
       color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .theme-selector {
+      background: rgba(var(--bg-card-rgb), 0.8);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.6rem;
+      border-radius: 8px;
+      font-family: var(--font-family);
+      font-size: 0.75rem;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .theme-selector:hover {
+      border-color: var(--accent);
     }
 
     .nav-links {
@@ -163,7 +265,7 @@
     }
 
     .stack-icon {
-      background: rgba(126, 231, 135, 0.06);
+      background: rgba(var(--accent-rgb), 0.06);
       border: 1px solid var(--border);
       border-radius: 30px;
       padding: 0.35rem 1rem;
@@ -202,7 +304,7 @@
 
     .btn-primary {
       background: var(--accent-dim);
-      color: #0a0c10;
+      color: var(--bg);
     }
 
     .btn-primary:hover {
@@ -287,12 +389,13 @@
       border-radius: 12px;
       padding: 1.1rem 1.3rem;
       border: 1px solid var(--border);
-      transition: 0.2s;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .timeline-content:hover {
       border-color: var(--accent-dim);
-      transform: translateX(4px);
+      transform: translateX(4px) translateY(-2px);
+      box-shadow: 0 8px 20px rgba(var(--accent-dim-rgb), 0.15);
     }
 
     .timeline-header {
@@ -335,7 +438,7 @@
     }
 
     .tag {
-      background: rgba(126, 231, 135, 0.08);
+      background: rgba(var(--accent-rgb), 0.08);
       padding: 0.15rem 0.7rem;
       border-radius: 20px;
       font-size: 0.6rem;
@@ -343,68 +446,133 @@
       border: 1px solid var(--border);
     }
 
-    /* Projects */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 1.2rem;
+    /* CARROSSEL CORRIGIDO */
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      padding: 0 40px;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      border-radius: 20px;
+      margin: -1.5rem 0;
+      /* Compensa o padding do carousel para alinhar corretamente */
+    }
+
+    .projects-carousel {
+      display: flex;
+      gap: 1.5rem;
+      cursor: grab;
+      padding: 1.5rem 0;
+      /* Espaço para o efeito de hover não ser cortado */
+    }
+
+    .projects-carousel:active {
+      cursor: grabbing;
+    }
+
+    .carousel-slide {
+      min-width: calc(33.333% - 1rem);
+      flex-shrink: 0;
     }
 
     .project-card {
       background: var(--bg-card);
-      border-radius: 12px;
-      padding: 1.2rem;
+      border-radius: 20px;
+      padding: 1.5rem;
       border: 1px solid var(--border);
-      transition: 0.2s;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(var(--accent-dim-rgb), 0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
     }
 
     .project-card:hover {
       border-color: var(--accent-dim);
-      transform: translateY(-3px);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(var(--accent-dim-rgb), 0.25);
     }
 
+    /* Ícones animados */
     .project-icon {
-      width: 40px;
-      height: 40px;
-      background: rgba(126, 231, 135, 0.08);
-      border-radius: 10px;
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg, rgba(var(--accent-dim-rgb), 0.15), rgba(var(--accent-rgb), 0.05));
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 0.9rem;
+      margin-bottom: 1.2rem;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .project-card:hover .project-icon {
+      transform: rotate(5deg) scale(1.1);
     }
 
     .project-icon i {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       color: var(--accent-dim);
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .project-card:hover .project-icon i {
+      color: var(--accent);
+      transform: scale(1.1) rotate(360deg);
     }
 
     .project-title {
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.6rem;
     }
 
     .project-desc {
       color: var(--text-dim);
-      font-size: 0.7rem;
-      margin-bottom: 0.8rem;
-      line-height: 1.45;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
     }
 
     .project-tech {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.8rem;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
     }
 
     .project-tech span {
-      background: rgba(126, 231, 135, 0.06);
-      padding: 0.15rem 0.6rem;
-      border-radius: 12px;
-      font-size: 0.55rem;
+      background: rgba(var(--accent-rgb), 0.08);
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.6rem;
       color: var(--accent-dim);
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .project-card:hover .project-tech span {
+      border-color: var(--accent-dim);
+      background: rgba(var(--accent-rgb), 0.15);
     }
 
     .project-link {
@@ -414,14 +582,107 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
+      transition: all 0.3s;
     }
 
     .project-link:hover {
       color: var(--accent);
-      gap: 0.6rem;
+      gap: 0.8rem;
     }
 
-    /* Certs - cards uniformes */
+    /* Botões do carrossel */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(var(--bg-card-rgb), 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s;
+      color: var(--text-dim);
+      font-size: 1.2rem;
+    }
+
+    .carousel-btn:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+      transform: translateY(-50%) scale(1.1);
+      background: rgba(var(--bg-card-rgb), 1);
+    }
+
+    .carousel-btn.prev {
+      left: 0;
+    }
+
+    .carousel-btn.next {
+      right: 0;
+    }
+
+    /* Botão play/pause */
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .play-pause-btn {
+      background: rgba(var(--bg-card-rgb), 0.9);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      color: var(--text-dim);
+    }
+
+    .play-pause-btn:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    /* Indicadores */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .dot.active {
+      background: var(--accent-dim);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    .dot:hover {
+      background: var(--accent);
+    }
+
+    /* Certificações */
     .certs-section {
       margin-bottom: 2rem;
     }
@@ -429,7 +690,7 @@
     .certs-subtitle {
       font-size: 0.85rem;
       font-weight: 500;
-      margin: 1rem 0 1rem;
+      margin: 1.5rem 0 1rem;
       color: var(--accent);
       display: flex;
       align-items: center;
@@ -439,19 +700,19 @@
     .certs-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.2rem;
       align-items: stretch;
     }
 
     .cert-card {
       background: var(--bg-card);
-      border-radius: 10px;
-      padding: 0.8rem 0.6rem;
+      border-radius: 16px;
+      padding: 1.2rem 0.8rem;
       text-align: center;
       border: 1px solid var(--border);
-      transition: 0.2s;
-      min-width: 145px;
-      max-width: 160px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      min-width: 155px;
+      max-width: 170px;
       flex: 1 0 auto;
       text-decoration: none;
       color: inherit;
@@ -463,34 +724,46 @@
 
     .cert-card:hover {
       border-color: var(--accent-dim);
-      transform: translateY(-2px);
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 15px 35px rgba(var(--accent-dim-rgb), 0.2);
+    }
+
+    .cert-card i,
+    .cert-card svg {
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      font-size: 2rem;
+    }
+
+    .cert-card:hover i,
+    .cert-card:hover svg {
+      transform: scale(1.2) rotate(10deg);
     }
 
     .cert-card i {
-      font-size: 1.3rem;
       color: var(--accent-dim);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .cert-card svg {
+      margin-bottom: 0.7rem;
     }
 
     .cert-card h4 {
-      font-size: 0.65rem;
+      font-size: 0.68rem;
       font-weight: 500;
-      margin-bottom: 0.2rem;
-      line-height: 1.3;
-      word-break: break-word;
-      max-width: 100%;
+      margin-bottom: 0.3rem;
+      line-height: 1.35;
     }
 
-    .cert-card p {
-      font-size: 0.55rem;
-      color: var(--text-dim);
+    .cert-card:hover h4 {
+      color: var(--accent);
     }
 
     /* Contact */
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
 
@@ -499,19 +772,20 @@
       align-items: center;
       gap: 0.6rem;
       background: var(--bg-card);
-      padding: 0.55rem 1.2rem;
-      border-radius: 40px;
+      padding: 0.65rem 1.4rem;
+      border-radius: 50px;
       border: 1px solid var(--border);
       text-decoration: none;
       color: var(--text-dim);
-      transition: 0.2s;
+      transition: all 0.3s;
       font-size: 0.75rem;
     }
 
     .contact-item:hover {
       border-color: var(--accent-dim);
       color: var(--accent);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(var(--accent-dim-rgb), 0.15);
     }
 
     footer {
@@ -527,221 +801,515 @@
     }
 
     @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 968px) {
+      .carousel-slide {
+        min-width: calc(50% - 0.75rem);
+      }
     }
 
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
+
       .menu-btn {
         display: block;
       }
+
       section {
         padding: 2rem 1rem;
       }
+
       .hero h1 {
         font-size: 1.5rem;
       }
-      .projects-grid {
-        grid-template-columns: 1fr;
+
+      .carousel-slide {
+        min-width: 100%;
       }
-      .timeline::before {
-        left: 4px;
+
+      .carousel-wrapper {
+        padding: 0 30px;
       }
-      .timeline-item {
-        padding-left: 1.2rem;
+
+      .carousel-btn {
+        width: 35px;
+        height: 35px;
       }
+
       .cert-card {
-        min-width: 120px;
+        min-width: 130px;
       }
     }
   </style>
 </head>
+
 <body>
 
-<nav class="navbar">
-  <div class="nav-container">
-    <div class="logo">~/portfolio</div>
-    <div class="menu-btn" id="menuBtn">☰</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">~/home</a></li>
-      <li><a href="#experience">~/experience</a></li>
-      <li><a href="#projects">~/projects</a></li>
-      <li><a href="#certifications">~/certs</a></li>
-      <li><a href="#contact">~/contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-content">
-    <img src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/refs/heads/main/face2.jpg" alt="Luann" class="profile-img">
-    <h1>Luann Pereira Mendes</h1>
-    <div class="title">>_ Engenheiro de Software</div>
-    <div class="location">📍 Vassouras, RJ · conclusão Dez/2026</div>
-    <div class="prompt-line"><span>$</span> cat skills.txt</div>
-    <div class="stacks">
-      <span class="stack-icon"><i class="fab fa-python"></i> Python</span>
-      <span class="stack-icon"><i class="fab fa-js"></i> JS/TS</span>
-      <span class="stack-icon"><i class="fab fa-node-js"></i> Node.js</span>
-      <span class="stack-icon"><i class="fab fa-docker"></i> Docker</span>
-      <span class="stack-icon"><i class="fab fa-git-alt"></i> Git</span>
-      <span class="stack-icon"><i class="fas fa-database"></i> SQL</span>
-      <span class="stack-icon"><i class="fab fa-react"></i> React</span>
-      <span class="stack-icon"><i class="fas fa-chart-line"></i> Grafana</span>
-      <span class="stack-icon"><i class="fab fa-linux"></i> Linux</span>
-      <span class="stack-icon"><i class="fas fa-link"></i> Blockchain</span>
-    </div>
-    <div class="btn-group">
-      <a href="#experience" class="btn btn-primary">./trajetória</a>
-      <a href="#contact" class="btn btn-outline">./contato</a>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIÊNCIA -->
-<section id="experience" style="background: var(--bg-card);">
-  <div class="container">
-    <div class="section-title"> experiência profissional</div>
-    <div class="timeline">
-      <div class="timeline-item"><div class="timeline-content"><div class="timeline-header"><span class="timeline-title">DevSecOps (Monitoramento)</span><span class="timeline-date">Jan/2025 — Abr/2026</span></div><div class="timeline-company">Grownt · Remoto</div><div class="timeline-desc">Implementação de proxy com Grafana para monitoramento de logs e métricas. Criação de dashboards de observabilidade e apoio em verificações de qualidade pós-deploy.</div><div class="timeline-tags"><span class="tag">Grafana</span><span class="tag">monitoramento</span><span class="tag">observabilidade</span></div></div></div>
-      <div class="timeline-item"><div class="timeline-content"><div class="timeline-header"><span class="timeline-title">Testador de QA</span><span class="timeline-date">Jun/2025 — Jan/2026</span></div><div class="timeline-company">Grownt · Remoto</div><div class="timeline-desc">Execução de testes funcionais e de regressão para clientes 321 Fly e Equatorial. Criação de planos de teste, casos de teste e relatórios de bugs. Participação em rituais ágeis Scrum.</div><div class="timeline-tags"><span class="tag">testes funcionais</span><span class="tag">regressão</span><span class="tag">Jira</span><span class="tag">Scrum</span></div></div></div>
-      <div class="timeline-item"><div class="timeline-content"><div class="timeline-header"><span class="timeline-title">Desenvolvedor Fullstack</span><span class="timeline-date">Nov/2024 — Jun/2025</span></div><div class="timeline-company">HRV4Life · Remoto</div><div class="timeline-desc">Desenvolvimento de APIs com Adonis.js (Node.js) e criação/ajustes em telas Flutter. Consumo de APIs REST para integração de dados cardíacos.</div><div class="timeline-tags"><span class="tag">Node.js</span><span class="tag">Flutter</span><span class="tag">APIs REST</span><span class="tag">Git</span></div></div></div>
-      <div class="timeline-item"><div class="timeline-content"><div class="timeline-header"><span class="timeline-title">Assistente Técnico / Instrutor</span><span class="timeline-date">Set/2024 — Nov/2024</span></div><div class="timeline-company">Gameficada · Vassouras</div><div class="timeline-desc">Ministração de aulas de informática, suporte técnico e introdução ao método Kanban.</div><div class="timeline-tags"><span class="tag">suporte</span><span class="tag">Kanban</span><span class="tag">docência</span></div></div></div>
-      <div class="timeline-item"><div class="timeline-content"><div class="timeline-header"><span class="timeline-title">Monitor de Estruturas de Dados,Estruturas de Dados avançado e laboratorio web</span><span class="timeline-date">2024 · 18 meses</span></div><div class="timeline-company">Univassouras</div><div class="timeline-desc">Auxílio na compreensão de listas, pilhas, filas, árvores e grafos. Apoio no desenvolvimento de algoritmos eficientes.</div><div class="timeline-tags"><span class="tag">estruturas de dados</span><span class="tag">algoritmos</span></div></div></div>
-      <div class="timeline-item"><div class="timeline-content"><div class="timeline-header"><span class="timeline-title">Suporte Técnico Internacional</span><span class="timeline-date">Jan/2024 — Mar/2024</span></div><div class="timeline-company">DMS Logistics · Remoto</div><div class="timeline-desc">Suporte técnico para clientes internacionais, resolução de incidentes e documentação. Participação em Hackathon com sistema Air Tech.</div><div class="timeline-tags"><span class="tag">suporte internacional</span><span class="tag">documentação</span></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJETOS -->
-<section id="projects">
-  <div class="container">
-    <div class="section-title"> projetos em destaque</div>
-    <div class="projects-grid">
-      <div class="project-card"><div class="project-icon"><i class="fas fa-brain"></i></div><div class="project-title">Llama3 Local + SQLite</div><div class="project-desc">IA local com Ollama + LangChain para queries em linguagem natural convertidas em SQL.</div><div class="project-tech"><span>Python</span><span>LangChain</span><span>SQLite</span></div><a href="https://github.com/Luann8/Llama3-Local" class="project-link">github →</a></div>
-      <div class="project-card"><div class="project-icon"><i class="fas fa-cloud-upload-alt"></i></div><div class="project-title">DevOps Lab</div><div class="project-desc">Infraestrutura como código com Docker, Ansible e Vagrant. Automação e orquestração de containers.</div><div class="project-tech"><span>Docker</span><span>Ansible</span><span>Vagrant</span></div><a href="https://github.com/Luann8/devops" class="project-link">github →</a></div>
-      <div class="project-card"><div class="project-icon"><i class="fas fa-calculator"></i></div><div class="project-title">Calculadora de BTUs</div><div class="project-desc">Aplicação web com React + Node.js para cálculo de potência de ar-condicionado e busca de instaladores.</div><div class="project-tech"><span>React</span><span>Node.js</span><span>Express</span></div><a href="https://github.com/Luann8/Backend-uv-btus" class="project-link">github →</a></div>
-      <div class="project-card"><div class="project-icon"><i class="fas fa-mobile-alt"></i></div><div class="project-title">Gerenciador Flutter + SQLite</div><div class="project-desc">CRUD completo de categorias e produtos com relacionamento, banco local SQLite.</div><div class="project-tech"><span>Flutter</span><span>Dart</span><span>SQLite</span></div><a href="https://github.com/Luann8/Gerenciador_de_Categorias_Produtos_Crud_sqlite_Dart" class="project-link">github →</a></div>
-      <div class="project-card"><div class="project-icon"><i class="fas fa-tachometer-alt"></i></div><div class="project-title">Comparação de Linguagens</div><div class="project-desc">Benchmark comparativo entre Rust, Go, Python, C e JavaScript.</div><div class="project-tech"><span>Rust</span><span>Go</span><span>Python</span><span>C</span><span>JS</span></div><a href="https://github.com/Luann8/Time-comparation-Rust-Golang-Python-C-JS" class="project-link">github →</a></div>
-      <div class="project-card"><div class="project-icon"><i class="fas fa-university"></i></div><div class="project-title">API Banco Central</div><div class="project-desc">Análise e processamento de mais de 10.000 denominações financeiras com Python e Pandas.</div><div class="project-tech"><span>Python</span><span>Pandas</span><span>APIs</span></div><a href="https://github.com/Luann8/API-Banco-Central-Python-10000-denominacoes" class="project-link">github →</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICAÇÕES - Cards uniformes -->
-<section id="certifications" style="background: var(--bg-card);">
-  <div class="container">
-    <div class="section-title"> certificações</div>
-    
-    <div class="certs-section">
-      <div class="certs-subtitle"><i class="fab fa-microsoft"></i> Microsoft</div>
-      <div class="certs-grid">
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7200650903379435521/" target="_blank" class="cert-card"><i class="fab fa-microsoft"></i><h4>AZ-400: DevOps</h4></a>
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7200653039119011840/" target="_blank" class="cert-card"><i class="fab fa-docker"></i><h4>Dimensionar e gerenciar contêineres</h4></a>
-        <a href="https://learn.microsoft.com/api/achievements/share/pt-br/luannpereiramendes-8295/ETUJGSRP?sharingId=435896C3A9CDC588" target="_blank" class="cert-card"><i class="fab fa-git-alt"></i><h4>Inner Source</h4></a>
-        <a href="https://learn.microsoft.com/pt-br/users/luannpereiramendes-8295/achievements/hrey2278?ref=https%3A%2F%2Fwww.linkedin.com%2F" target="_blank" class="cert-card"><i class="fas fa-code-branch"></i><h4>Gerenciar e configurar repositórios</h4></a>
-        <a href="https://learn.microsoft.com/api/achievements/share/pt-br/luannpereiramendes-8295/HREY2278?sharingId=435896C3A9CDC588" target="_blank" class="cert-card"><i class="fas fa-chart-simple"></i><h4>Dívida técnica</h4></a>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">~/portfolio</div>
+      <div class="nav-actions">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">~/home</a></li>
+          <li><a href="#experience">~/experience</a></li>
+          <li><a href="#projects">~/projects</a></li>
+          <li><a href="#certifications">~/certs</a></li>
+          <li><a href="#contact">~/contact</a></li>
+        </ul>
+        <select id="themeSelector" class="theme-selector">
+          <option value="default">Terminal Moderno</option>
+          <option value="cyberpunk">Cyberpunk</option>
+          <option value="retro">Terminal Antigo</option>
+          <option value="google">Google</option>
+        </select>
+        <div class="menu-btn" id="menuBtn">☰</div>
       </div>
     </div>
+  </nav>
 
-    <div class="certs-section">
-      <div class="certs-subtitle"><i class="fab fa-linux"></i> Linux Foundation</div>
-      <div class="certs-grid">
-        <a href="https://www.credly.com/badges/8d942f97-c51e-4fa7-94d2-c297b387039d/" target="_blank" class="cert-card"><i class="fab fa-linux"></i><h4>Introduction to Linux</h4></a>
-        <a href="https://www.credly.com/badges/a8d3b519-451b-49d0-9034-82c7d7a7929c" target="_blank" class="cert-card"><i class="fas fa-network-wired"></i><h4>free5GC</h4></a>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <img src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/refs/heads/main/face2.jpg" alt="Luann"
+        class="profile-img">
+      <h1>Luann Pereira Mendes</h1>
+      <div class="title">>_ Engenheiro de Software</div>
+      <div class="location">📍 Vassouras, RJ · conclusão Dez/2026</div>
+      <div class="prompt-line"><span>$</span> cat skills.txt</div>
+      <div class="stacks">
+        <span class="stack-icon"><i class="fab fa-python"></i> Python</span>
+        <span class="stack-icon"><i class="fab fa-js"></i> JS/TS</span>
+        <span class="stack-icon"><i class="fab fa-node-js"></i> Node.js</span>
+        <span class="stack-icon"><i class="fab fa-docker"></i> Docker</span>
+        <span class="stack-icon"><i class="fab fa-git-alt"></i> Git</span>
+        <span class="stack-icon"><i class="fas fa-database"></i> SQL</span>
+        <span class="stack-icon"><i class="fab fa-react"></i> React</span>
+        <span class="stack-icon"><i class="fas fa-chart-line"></i> Grafana</span>
+        <span class="stack-icon"><i class="fab fa-linux"></i> Linux</span>
+        <span class="stack-icon"><i class="fas fa-link"></i> Blockchain</span>
+      </div>
+      <div class="btn-group">
+        <a href="#experience" class="btn btn-primary">./trajetória</a>
+        <a href="#contact" class="btn btn-outline">./contato</a>
       </div>
     </div>
+  </section>
 
-    <div class="certs-section">
-      <div class="certs-subtitle"><i class="fab fa-aws"></i> AWS</div>
-      <div class="certs-grid">
-        <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/overlay/Certifications/206160918/treasury/" target="_blank" class="cert-card"><i class="fab fa-aws"></i><h4>Advanced Testing</h4></a>
-        <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/overlay/Certifications/205241560/treasury/" target="_blank" class="cert-card"><i class="fab fa-aws"></i><h4>AWS Observability</h4></a>
+  <!-- EXPERIÊNCIA -->
+  <section id="experience" style="background: var(--bg-card);">
+    <div class="container">
+      <div class="section-title"> experiência profissional</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-header"><span class="timeline-title">DevSecOps (Monitoramento)</span><span
+                class="timeline-date">Jan/2025 — Abr/2026</span></div>
+            <div class="timeline-company">Grownt · Remoto</div>
+            <div class="timeline-desc">Implementação de proxy com Grafana para monitoramento de logs e métricas. Criação
+              de dashboards de observabilidade e apoio em verificações de qualidade pós-deploy.</div>
+            <div class="timeline-tags"><span class="tag">Grafana</span><span class="tag">monitoramento</span><span
+                class="tag">observabilidade</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-header"><span class="timeline-title">Testador de QA</span><span
+                class="timeline-date">Jun/2025 — Jan/2026</span></div>
+            <div class="timeline-company">Grownt · Remoto</div>
+            <div class="timeline-desc">Execução de testes funcionais e de regressão para clientes 321 Fly e Equatorial.
+              Criação de planos de teste, casos de teste e relatórios de bugs. Participação em rituais ágeis Scrum.
+            </div>
+            <div class="timeline-tags"><span class="tag">testes funcionais</span><span class="tag">regressão</span><span
+                class="tag">Jira</span><span class="tag">Scrum</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-header"><span class="timeline-title">Desenvolvedor Fullstack</span><span
+                class="timeline-date">Nov/2024 — Jun/2025</span></div>
+            <div class="timeline-company">HRV4Life · Remoto</div>
+            <div class="timeline-desc">Desenvolvimento de APIs com Adonis.js (Node.js) e criação/ajustes em telas
+              Flutter. Consumo de APIs REST para integração de dados cardíacos.</div>
+            <div class="timeline-tags"><span class="tag">Node.js</span><span class="tag">Flutter</span><span
+                class="tag">APIs REST</span><span class="tag">Git</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-header"><span class="timeline-title">Assistente Técnico / Instrutor</span><span
+                class="timeline-date">Set/2024 — Nov/2024</span></div>
+            <div class="timeline-company">Gameficada · Vassouras</div>
+            <div class="timeline-desc">Ministração de aulas de informática, suporte técnico e introdução ao método
+              Kanban.</div>
+            <div class="timeline-tags"><span class="tag">suporte</span><span class="tag">Kanban</span><span
+                class="tag">docência</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-header"><span class="timeline-title">Monitor de Estruturas de Dados</span><span
+                class="timeline-date">2024 · 18 meses</span></div>
+            <div class="timeline-company">Univassouras</div>
+            <div class="timeline-desc">Auxílio na compreensão de listas, pilhas, filas, árvores e grafos. Apoio no
+              desenvolvimento de algoritmos eficientes.</div>
+            <div class="timeline-tags"><span class="tag">estruturas de dados</span><span class="tag">algoritmos</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-header"><span class="timeline-title">Suporte Técnico Internacional</span><span
+                class="timeline-date">Jan/2024 — Mar/2024</span></div>
+            <div class="timeline-company">DMS Logistics · Remoto</div>
+            <div class="timeline-desc">Suporte técnico para clientes internacionais, resolução de incidentes e
+              documentação.</div>
+            <div class="timeline-tags"><span class="tag">suporte internacional</span><span
+                class="tag">documentação</span></div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="certs-section">
-      <div class="certs-subtitle"><i class="fas fa-link"></i> Blockchain & Dev</div>
-      <div class="certs-grid">
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7216969416452812800/" target="_blank" class="cert-card"><i class="fas fa-link"></i><h4>Blockchain</h4></a>
-       
-<a href="https://verify.skilljar.com/c/y979kcpc45jf" target="_blank" class="cert-card">
-  <svg width="1em" height="1em" viewBox="0 0 16 16" fill="#3fb950" xmlns="http://www.w3.org/2000/svg" style="font-size: 24px; margin-bottom: 10px;">
-    <path fill-rule="evenodd" d="M9.218 2h2.402L16 12.987h-2.402zM4.379 2h2.512l4.38 10.987H8.82l-.895-2.308h-4.58l-.896 2.307H0L4.38 2.001zm2.755 6.64L5.635 4.777 4.137 8.64z"/>
-  </svg>
-  <h4>Model Context Protocol: Advanced Topics</h4>
-</a>
+  <!-- PROJETOS COM CARROSSEL CORRIGIDO -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title"> projetos em destaque</div>
+      <div class="carousel-wrapper">
+        <br>
+        <div class="carousel-container">
+          <div class="projects-carousel" id="projectsCarousel">
+            <div class="carousel-slide">
+              <div class="project-card">
+                <div class="project-icon"><i class="fas fa-brain"></i></div>
+                <div class="project-title">Llama3 Local + SQLite</div>
+                <div class="project-desc">IA local com Ollama + LangChain para queries em linguagem natural convertidas
+                  em SQL.</div>
+                <div class="project-tech"><span>Python</span><span>LangChain</span><span>SQLite</span></div><a
+                  href="https://github.com/Luann8/Llama3-Local" class="project-link">github →</a>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="project-card">
+                <div class="project-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <div class="project-title">DevOps Lab</div>
+                <div class="project-desc">Infraestrutura como código com Docker, Ansible e Vagrant. Automação e
+                  orquestração.</div>
+                <div class="project-tech"><span>Docker</span><span>Ansible</span><span>Vagrant</span></div><a
+                  href="https://github.com/Luann8/devops" class="project-link">github →</a>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="project-card">
+                <div class="project-icon"><i class="fas fa-calculator"></i></div>
+                <div class="project-title">Calculadora de BTUs</div>
+                <div class="project-desc">Aplicação web com React + Node.js para cálculo de potência de ar-condicionado.
+                </div>
+                <div class="project-tech"><span>React</span><span>Node.js</span><span>Express</span></div><a
+                  href="https://github.com/Luann8/Backend-uv-btus" class="project-link">github →</a>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="project-card">
+                <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
+                <div class="project-title">Gerenciador Flutter</div>
+                <div class="project-desc">CRUD completo de categorias e produtos com banco local SQLite.</div>
+                <div class="project-tech"><span>Flutter</span><span>Dart</span><span>SQLite</span></div><a
+                  href="https://github.com/Luann8/Gerenciador_de_Categorias_Produtos_Crud_sqlite_Dart"
+                  class="project-link">github →</a>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="project-card">
+                <div class="project-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <div class="project-title">Comparação de Linguagens</div>
+                <div class="project-desc">Benchmark entre Rust, Go, Python, C e JavaScript.</div>
+                <div class="project-tech">
+                  <span>Rust</span><span>Go</span><span>Python</span><span>C</span><span>JS</span>
+                </div><a href="https://github.com/Luann8/Time-comparation-Rust-Golang-Python-C-JS"
+                  class="project-link">github
+                  →</a>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="project-card">
+                <div class="project-icon"><i class="fas fa-university"></i></div>
+                <div class="project-title">API Banco Central</div>
+                <div class="project-desc">Análise de 10.000+ denominações financeiras com Python e Pandas.</div>
+                <div class="project-tech"><span>Python</span><span>Pandas</span><span>APIs</span></div><a
+                  href="https://github.com/Luann8/API-Banco-Central-Python-10000-denominacoes"
+                  class="project-link">github →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-btn prev" id="prevBtn" style="display: none;"><i class="fas fa-chevron-left"></i></div>
+        <div class="carousel-btn next" id="nextBtn" style="display: none;"><i class="fas fa-chevron-right"></i></div>
+      </div>
+      <div class="carousel-controls">
+        <div class="play-pause-btn" id="playPauseBtn">
+          <i class="fas fa-pause" id="playPauseIcon"></i>
+        </div>
+      </div>
+      <div class="carousel-dots" id="carouselDots" style="display: none;"></div>
+    </div>
+  </section>
 
-<a href="https://verify.skilljar.com/c/c3u27f5v69ff" target="_blank" class="cert-card">
-  <svg width="1em" height="1em" viewBox="0 0 16 16" fill="#3fb950" xmlns="http://www.w3.org/2000/svg" style="font-size: 24px; margin-bottom: 10px;">
-    <path fill-rule="evenodd" d="M9.218 2h2.402L16 12.987h-2.402zM4.379 2h2.512l4.38 10.987H8.82l-.895-2.308h-4.58l-.896 2.307H0L4.38 2.001zm2.755 6.64L5.635 4.777 4.137 8.64z"/>
-  </svg>
-  <h4 >Claude 101</h4>
-</a>
+  <!-- CERTIFICAÇÕES -->
+  <section id="certifications" style="background: var(--bg-card);">
+    <div class="container">
+      <div class="section-title"> certificações</div>
+
+      <div class="certs-section">
+        <div class="certs-subtitle"><i class="fab fa-microsoft"></i> Microsoft</div>
+        <div class="certs-grid">
+          <a href="#" class="cert-card"><i class="fab fa-microsoft"></i>
+            <h4>AZ-400: DevOps</h4>
+          </a>
+          <a href="#" class="cert-card"><i class="fab fa-docker"></i>
+            <h4>Dimensionar contêineres</h4>
+          </a>
+          <a href="#" class="cert-card"><i class="fab fa-git-alt"></i>
+            <h4>Inner Source</h4>
+          </a>
+          <a href="#" class="cert-card"><i class="fas fa-code-branch"></i>
+            <h4>Gerenciar repositórios</h4>
+          </a>
+          <a href="#" class="cert-card"><i class="fas fa-chart-simple"></i>
+            <h4>Dívida técnica</h4>
+          </a>
+        </div>
+      </div>
+
+      <div class="certs-section">
+        <div class="certs-subtitle"><i class="fab fa-linux"></i> Linux Foundation</div>
+        <div class="certs-grid">
+          <a href="#" class="cert-card"><i class="fab fa-linux"></i>
+            <h4>Introduction to Linux</h4>
+          </a>
+          <a href="#" class="cert-card"><i class="fas fa-network-wired"></i>
+            <h4>free5GC</h4>
+          </a>
+        </div>
+      </div>
+      <div class="certs-section">
+        <div class="certs-subtitle"><i class="fa-solid fa-seedling"></i> Skilljar AWS Blockchain</div>
+        <div class="certs-grid">
+          <a href="#" class="cert-card"><i class="fab fa-aws"></i>
+            <h4>Advanced Testing</h4>
+          </a>
+          <a href="#" class="cert-card"><i class="fab fa-aws"></i>
+            <h4>AWS Observability</h4>
+          </a>
 
 
+          <div class="certs-sction">
+            <div class="certs-grid">
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7216969416452812800/" target="_blank"
+                class="cert-card"><i class="fas fa-link"></i>
+                <h4>Blockchain</h4>
+              </a>
 
+              <a href="https://verify.skilljar.com/c/y979kcpc45jf" target="_blank" class="cert-card">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" fill="#3fb950" xmlns="http://www.w3.org/2000/svg"
+                  style="font-size: 24px; margin-bottom: 10px;">
+                  <path fill-rule="evenodd"
+                    d="M9.218 2h2.402L16 12.987h-2.402zM4.379 2h2.512l4.38 10.987H8.82l-.895-2.308h-4.58l-.896 2.307H0L4.38 2.001zm2.755 6.64L5.635 4.777 4.137 8.64z" />
+                </svg>
+                <h4>Model Context Protocol: Advanced Topics</h4>
+              </a>
+
+              <a href="https://verify.skilljar.com/c/c3u27f5v69ff" target="_blank" class="cert-card">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" fill="#3fb950" xmlns="http://www.w3.org/2000/svg"
+                  style="font-size: 24px; margin-bottom: 10px;">
+                  <path fill-rule="evenodd"
+                    d="M9.218 2h2.402L16 12.987h-2.402zM4.379 2h2.512l4.38 10.987H8.82l-.895-2.308h-4.58l-.896 2.307H0L4.38 2.001zm2.755 6.64L5.635 4.777 4.137 8.64z" />
+                </svg>
+                <h4>Claude 101</h4>
+              </a>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title"> contato</div>
+      <div class="contact-links">
+        <a href="https://wa.me/5524993276098" class="contact-item"><i class="fab fa-whatsapp"></i> (24) 99327-6098</a>
+        <a href="mailto:luannpmendes@gmail.com" class="contact-item"><i class="fas fa-envelope"></i>
+          luannpmendes@gmail.com</a>
+        <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/" class="contact-item"><i
+            class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/Luann8" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://luann8.github.io/LinkTree/" class="contact-item"><i class="fas fa-link"></i> LinkTree</a>
       </div>
     </div>
-  </div>
+  </section>
 
+  <footer>
+    <p>luann@portfolio:~$ echo "disponível para oportunidades" <span class="blink">█</span></p>
+    <p style="margin-top: 0.5rem;">© 2025 Luann Pereira Mendes</p>
+  </footer>
 
+  <script>
+    // Tema
+    const themeSelector = document.getElementById('themeSelector');
+    const currentTheme = localStorage.getItem('theme') || 'default';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    themeSelector.value = currentTheme;
 
+    themeSelector.addEventListener('change', (e) => {
+      const newTheme = e.target.value;
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
 
-</section>
+    // Menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
 
-<!-- CONTATO -->
-<section id="contact">
-  <div class="container">
-    <div class="section-title"> contato</div>
-    <div class="contact-links">
-      <a href="https://wa.me/5524993276098" class="contact-item"><i class="fab fa-whatsapp"></i> (24) 99327-6098</a>
-      <a href="mailto:luannpmendes@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> luannpmendes@gmail.com</a>
-      <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="https://github.com/Luann8" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://luann8.github.io/LinkTree/" class="contact-item"><i class="fas fa-link"></i> LinkTree</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>luann@portfolio:~$ echo "disponível para oportunidades" <span class="blink">█</span></p>
-  <p style="margin-top: 0.5rem;">© 2025 Luann Pereira Mendes</p>
-</footer>
-
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const navLinks = document.getElementById('navLinks');
-  menuBtn.addEventListener('click', () => {
-    if (navLinks.style.display === 'flex') {
-      navLinks.style.display = 'none';
-    } else {
-      navLinks.style.display = 'flex';
-      navLinks.style.flexDirection = 'column';
-      navLinks.style.position = 'absolute';
-      navLinks.style.top = '60px';
-      navLinks.style.left = '0';
-      navLinks.style.width = '100%';
-      navLinks.style.background = '#0a0c10';
-      navLinks.style.padding = '1.2rem';
-      navLinks.style.gap = '0.8rem';
-      navLinks.style.borderBottom = '1px solid #2d2f36';
-    }
-  });
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-        if (navLinks.style.display === 'flex') navLinks.style.display = 'none';
+    menuBtn.addEventListener('click', () => {
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+      } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '60px';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.background = '#0a0c10';
+        navLinks.style.padding = '1.2rem';
+        navLinks.style.gap = '0.8rem';
+        navLinks.style.borderBottom = '1px solid #2d2f36';
       }
     });
-  });
-</script>
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+          if (navLinks.style.display === 'flex') navLinks.style.display = 'none';
+        }
+      });
+    });
+
+    // CARROSSEL MARQUEE (Infinito e Arrastável)
+    const carousel = document.getElementById('projectsCarousel');
+    const carouselContainer = document.querySelector('.carousel-container');
+    let originalSlides = document.querySelectorAll('.carousel-slide');
+    const originalCount = originalSlides.length;
+
+    // Duplica os slides 2 vezes para garantir que preencha a tela perfeitamente durante o drag
+    for (let i = 0; i < 2; i++) {
+      originalSlides.forEach(slide => {
+        carousel.appendChild(slide.cloneNode(true));
+      });
+    }
+
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playPauseIcon = document.getElementById('playPauseIcon');
+
+    let isAutoPlaying = true;
+    let offset = 0;
+    let isDragging = false;
+    let startX = 0;
+    let currentX = 0;
+    let animationId;
+    const speed = 0.6; // Velocidade do giro automático
+
+    function getOriginalWidth() {
+      const slide = originalSlides[0];
+      const gap = 24; // 1.5rem
+      return (slide.offsetWidth + gap) * originalCount;
+    }
+
+    function animate() {
+      if (!isDragging && isAutoPlaying) {
+        offset -= speed;
+      }
+
+      const originalWidth = getOriginalWidth();
+
+      // Loop infinito silencioso
+      if (offset <= -originalWidth) {
+        offset += originalWidth;
+      } else if (offset > 0) {
+        offset -= originalWidth;
+      }
+
+      carousel.style.transform = `translateX(${offset}px)`;
+      animationId = requestAnimationFrame(animate);
+    }
+
+    // --- Lógica de Arrastar (Mouse) ---
+    carouselContainer.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.pageX;
+      currentX = offset;
+      carouselContainer.style.cursor = 'grabbing';
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      carouselContainer.style.cursor = 'grab';
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX;
+      const walk = (x - startX) * 1.5; // Multiplicador de velocidade do arraste
+      offset = currentX + walk;
+    });
+
+    // --- Lógica de Arrastar (Touch) ---
+    carouselContainer.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      startX = e.touches[0].pageX;
+      currentX = offset;
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const x = e.touches[0].pageX;
+      const walk = (x - startX) * 1.5;
+      offset = currentX + walk;
+    }, { passive: true });
+
+    // Prevenir comportamento padrão de arrastar imagens e links (evita bugs no mouse)
+    carousel.querySelectorAll('a, img, i').forEach(el => {
+      el.addEventListener('dragstart', e => e.preventDefault());
+    });
+
+    // Botão Play/Pause
+    function toggleAutoPlay() {
+      isAutoPlaying = !isAutoPlaying;
+      playPauseIcon.className = isAutoPlaying ? 'fas fa-pause' : 'fas fa-play';
+    }
+    playPauseBtn.addEventListener('click', toggleAutoPlay);
+
+    // Iniciar
+    animationId = requestAnimationFrame(animate);
+  </script>
 </body>
+
 </html>
