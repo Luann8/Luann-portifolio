@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Luann Pereira Mendes | ~/portfolio</title>
     <meta name="description"
-        content="Portfólio de Luann Pereira Mendes - Engenheiro de Software, QA e DevOps. Visual estilo terminal moderno." />
+        content="Portfólio de Luann Pereira Mendes - Engenheiro de Software. Visual estilo terminal moderno." />
     <link rel="icon" href="https://img.icons8.com/color/48/brazil-circular.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
@@ -44,15 +43,7 @@
             </li>
         </ul>
 
-        <div class="sidebar-theme">
-            <label>// theme</label>
-            <select id="themeSelector" class="theme-selector">
-                <option value="default">Terminal Moderno</option>
-                <option value="cyberpunk">Cyberpunk</option>
-                <option value="retro">Terminal Antigo</option>
-                <option value="google">Google</option>
-            </select>
-        </div>
+
 
         <div class="sidebar-socials">
             <a href="https://github.com/Luann8" class="sidebar-social-link" title="GitHub"><i
@@ -66,6 +57,7 @@
 
             <a href="https://www.credly.com/users/luann-pereira-mendes" class="sidebar-social-link" title="credly"><i
                     class="fas fa-id-card"></i></a>
+        </div>
     </aside>
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
@@ -73,30 +65,52 @@
     <!-- MAIN CONTENT -->
     <main class="main-content">
 
-        <!-- HERO -->
-        <section id="home" class="hero">
+        <!-- TOP HUD BAR (NOVO CABEÇALHO SYSTEM) -->
+        <header class="top-hud-header">
+            <div class="hud-left">
+                <span class="hud-badge"><i class="fas fa-code"></i> SYSTEM_READY</span>
+                <span class="hud-stat">PING: <strong>1ms</strong></span>
+            </div>
+            <div class="hud-right">
+                <span class="hud-stat">STATUS: <strong>ONLINE</strong></span>
+                <span class="hud-stat blink-text"><i class="fas fa-shield-halved"></i> ARMOR 100%</span>
+            </div>
+        </header>
+
+        <!-- HERO GAMER CYBERPUNK -->
+        <section id="home" class="hero gamer-hero">
             <div class="hero-content">
-                <img src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/refs/heads/main/face2.jpg"
-                    alt="Luann" class="profile-img">
-                <h1>Luann Pereira Mendes</h1>
-                <div class="title">&gt;_ Engenheiro de Software</div>
-                <div class="location">🗺️ Vassouras, RJ · conclusão Dez/2026</div>
-                <div class="prompt-line"><span>$</span> cat skills.txt</div>
-                <div class="stacks">
+                <div class="avatar-hud-wrapper">
+                    <img src="https://raw.githubusercontent.com/Luann8/Luann-portifolio/refs/heads/main/face2.jpg"
+                        alt="Luann" class="profile-img hud-avatar">
+                    <div class="hud-avatar-ring"></div>
+                </div>
+                <div class="hero-badges">
+                    <span class="gamer-badge"><i class="fas fa-code"></i> Software Engineer</span>
+                </div>
+                <h1 class="glitch-title">Luann Pereira Mendes</h1>
+                <div class="location"><i class="fas fa-location-dot"></i> Vassouras, RJ · Formação Dez/2026</div>
+                
+                <div class="prompt-line gamer-terminal">
+                    <span class="prompt-user">luann@system:~$</span> <span class="typing-cmd">cat active_skills.dat</span>
+                </div>
+                
+                <div>
                     <span class="stack-icon"><i class="fab fa-python"></i> Python</span>
                     <span class="stack-icon"><i class="fab fa-js"></i> JS/TS</span>
                     <span class="stack-icon"><i class="fab fa-node-js"></i> Node.js</span>
                     <span class="stack-icon"><i class="fab fa-docker"></i> Docker</span>
                     <span class="stack-icon"><i class="fab fa-git-alt"></i> Git</span>
+                </div>
+                <br>
+                <div>
                     <span class="stack-icon"><i class="fas fa-database"></i> SQL</span>
                     <span class="stack-icon"><i class="fab fa-react"></i> React</span>
                     <span class="stack-icon"><i class="fas fa-chart-line"></i> Grafana</span>
                     <span class="stack-icon"><i class="fab fa-linux"></i> Linux</span>
                     <span class="stack-icon"><i class="fas fa-link"></i> Blockchain</span>
                 </div>
-                <div class="btn-group">
-                    <a href="#experience" class="btn btn-primary">./trajetória</a>
-                </div>
+               
             </div>
         </section>
 
@@ -158,9 +172,7 @@
                             <div class="timeline-header"><span class="timeline-title">Suporte Técnico
                                     Internacional</span><span class="timeline-date">Jan/2024 — Mar/2024</span></div>
                             <div class="timeline-company">DMS Logistics · Remoto</div>
-                            <div class="timeline-desc">Suporte técnico
-                                resolução de
-                                incidentes e documentação, manipulação de dados em sql e json.</div>
+                            <div class="timeline-desc">Suporte técnico, resolução de incidentes e documentação, manipulação de dados em SQL e JSON.</div>
                             <div class="timeline-tags"><span class="tag">suporte internacional</span><span
                                     class="tag">documentação</span></div>
                         </div>
@@ -180,10 +192,8 @@
                             <div class="carousel-slide">
                                 <div class="project-card">
                                     <div class="project-icon"><i class="fas fa-brain"></i></div>
-                                    <div class="project-title">ChatBoot Llama </div>
-                                    <div class="project-desc">Chatboot com acesso local, utilizando IA Ollama com
-                                        interface e opções
-                                        extras.</div>
+                                    <div class="project-title">Chatbot Llama</div>
+                                    <div class="project-desc">Chatbot com acesso local, utilizando IA Ollama com interface e opções extras.</div>
                                     <div class="project-tech">
                                         <span>LLMs</span><span>React</span><span>IA</span>
                                     </div>
